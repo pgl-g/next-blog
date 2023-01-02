@@ -19,7 +19,7 @@ const navVal = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent bg-green-400 bg-opacity-[98] backdrop-blur-[40px]">
+    <header className="sticky top-0 z-50 w-full bg-transparent bg-gray-600 bg-opacity-[98] backdrop-blur-[40px]">
       <section className="layout">
         <div className="mx-8 flex h-[60px] items-center justify-between leading-[60px]">
           {/* 头部导航 */}
@@ -27,7 +27,11 @@ export default function Header() {
             {navVal.map((item) => {
               return (
                 <div key={item.name}>
-                  <Link href={item.link}>{item.name}</Link>
+                  <Link href={item.link}>
+                    <span className="hover:text-gray-400 text-gray-100">
+                      {item.name}
+                    </span>
+                  </Link>
                 </div>
               );
             })}
@@ -38,6 +42,7 @@ export default function Header() {
               href="https://github.com/pgl-g"
               rel="noreferrer"
               target="_blank"
+              className="text-gray-100"
             >
               <BsGithub />
             </a>
