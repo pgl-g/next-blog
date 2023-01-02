@@ -95,7 +95,7 @@ html.dark {
   }
 
   .bg-dark a.custom-link {
-    @apply border-gray-200 hover: border-gray-200/0;
+    @apply border-gray-200 hover:border-gray-200/0;
   }
 
   /* Class to adjust with sticky footer */
