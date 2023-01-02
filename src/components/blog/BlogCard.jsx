@@ -10,7 +10,7 @@ export default function BlogCard() {
   return (
     <li
       onClick={onClick}
-      className="w-full rounded-md border border-gray-300 bg-gray-500 dark:border-gray-600 dark:bg-dark scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
+      className="w-full rounded-md border cursor-pointer border-gray-300 bg-gray-500 dark:border-gray-600 dark:bg-dark scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
     >
       <div className="flex items-end p-4 mb:flex-col">
         {/* blog_info */}
