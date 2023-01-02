@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <section>
           <div className="mt-[120px]  text-left tablet:mt-[80px] mb:mt-[40px]">
-            <article>个人简历</article>
+            <article>个人博客</article>
           </div>
         </section>
       </main>
