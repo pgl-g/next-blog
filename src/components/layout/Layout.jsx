@@ -1,6 +1,7 @@
 import * as React from "react";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import Plum from '../../components/layout/Plum'
 
 export default function Layout({ children }) {
 
@@ -14,7 +15,7 @@ export default function Layout({ children }) {
           <Footer />
           </div>
       </div>
-      {/* <div className="pointer-events-none fixed top-0 bottom-0 left-0 right-0 z-[-1] bg-gray-400" /> */}
+      <Plum />
     </>
   );
 }

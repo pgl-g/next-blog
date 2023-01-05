@@ -91,6 +91,7 @@ html.dark {
 
   .layout {
     max-width: 1400px;
+    /* background-color: #222 */
     @apply mx-auto w-full;
   }
 

@@ -4,17 +4,13 @@ import { BsGithub } from 'react-icons/bs';
 
 const navVal = [
   {
-    name: "Resume",
+    name: "Blog",
     link: "/",
   },
-  // {
-  //   name: "Blog",
-  //   link: "/blog",
-  // },
-  // {
-  //   name: "Projects",
-  //   link: "/projects",
-  // },
+  {
+    name: "Projects",
+    link: "/projects",
+  },
 ];
 
 export default function Header() {
