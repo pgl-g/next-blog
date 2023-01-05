@@ -3,11 +3,13 @@ import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
 
 export default function Layout({ children }) {
+
+  
   return (
     <>
       <Header />
       <div className="layout">
-        <div className="mx-8 mb:mx-4">
+        <div className="mx-8">
           {children}
           <Footer />
           </div>

@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMeta = {
-  title: '个人博客',
-  siteName: '个人博客',
+  title: 'pgl-g',
+  siteName: 'pgl-g',
   description:
-    '顾孝标 个人博客，JS，Vue，React。座右铭：不为模糊不清的未来担忧，只为清清楚楚的现在奋发图强！',
+    'pgl-g 个人博客，JS，Vue，React。座右铭：不为模糊不清的未来担忧，只为清清楚楚的现在奋发图强！',
   keywords:
-    '顾孝标 个人博客，JS，Vue，React。座右铭：不为模糊不清的未来担忧，只为清清楚楚的现在奋发图强！',
+    'pgl-g 个人博客，JS，Vue，React。座右铭：不为模糊不清的未来担忧，只为清清楚楚的现在奋发图强！',
   /** Without additional '/' on the end */
   url: 'https://guxiaobiao.top',
   type: 'website',
@@ -44,19 +44,19 @@ export default function Seo(props) {
   return (
     <Head>
       <title>{meta.title}</title>
-      <meta name='robots' content={meta.robots} />
-      <meta content={meta.keywords} name='keywords' />
-      <meta content={meta.description} name='description' />
-      <meta property='' name='header_title' content='顾孝标 官网'></meta>
-      <meta name='image' property='og:image' content={meta.image} />
+      <link rel="icon" href="/favicon/favicon.ico" />
+      {/* <meta name='robots' content={meta.robots} /> */}
+      {/* <meta content={meta.keywords} name='keywords' /> */}
+      {/* <meta content={meta.description} name='description' /> */}
+      {/* <meta property='' name='header_title' content='顾孝标 官网'></meta> */}
+      {/* <meta name='image' property='og:image' content={meta.image} />
       <meta property='og:type' content={meta.type} />
       <meta property='og:site_name' content={meta.siteName} />
       <meta property='og:description' content={meta.description} />
       <meta property='og:title' content={meta.title} />
-      <meta property='og:url' content={`${meta.url}${router.asPath}`} />
-      <link rel='canonical' href={`${meta.url}${router.asPath}`} />
-      <link key='/favicon/favicon.ico' href='/favicon/favicon.ico' rel='icon' />
-      <meta name='theme-color' content='#ffffff' />
+      <meta property='og:url' content={`${meta.url}${router.asPath}`} /> */}
+      {/* <link rel='canonical' href={`${meta.url}${router.asPath}`} /> */}
+      {/* <meta name='theme-color' content='#ffffff' /> */}
     </Head>
   );
 }
