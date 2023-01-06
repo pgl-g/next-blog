@@ -1,7 +1,7 @@
 import * as React from "react";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
-import Plum from '../../components/layout/Plum'
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Plum from '@/components/layout/Plum'
 
 export default function Layout({ children }) {
 

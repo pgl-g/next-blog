@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Layout from "../components/layout/Layout";
-import Seo from "../components/Seo";
+import Layout from "@/components/layout/Layout";
+import Seo from "@/components/Seo";
 
 export default function Projects() {
 
@@ -13,7 +13,7 @@ export default function Projects() {
         description="Showcase of my projects on front-end development that I'm proud of."
       />
       <main>
-        <section className='fade-in-start'>
+        <section>
           <div className='layout'>
             <div
               className='mx-8 mt-12 grid max-w-[820px] gap-4 mb:mx-0 text-white'
