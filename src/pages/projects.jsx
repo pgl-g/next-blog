@@ -26,7 +26,7 @@ export default function Projects() {
 
               {projectsConfig.map((project, index) => (
                 <div key={index}>
-                  <h1 className="text-[18px] text-[#555] dark:text-[#aaa]" data-fade={index + 1}>
+                  <h1 className="text-[18px] text-[#555] dark:text-[#aaa]">
                     {project.category}
                   </h1>
                   <ProjectCard project={project} />
