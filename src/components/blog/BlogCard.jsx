@@ -1,18 +1,13 @@
 import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
-import Link from 'next/link'
+import Link from "next/link";
 
-
-export default function BlogCard({ onClick }) {
-
+export default function BlogCard({ onClick, data }) {
   return (
     <li
       onClick={onClick}
       className="w-full rounded-md border cursor-pointer border-gray-300  dark:border-gray-600 dark:bg-dark scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
     >
-      <Link
-        href={`/blog/1.jsx`}
-        className=""
-      >
+      <Link href={`/blog/${data[0].slug}`} className="">
         <div className="flex items-end p-4 mb:flex-col">
           {/* blog_info */}
           <div className="w-full text-white">
