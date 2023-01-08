@@ -1,16 +1,29 @@
-import * as React from 'react';
+import * as React from "react";
 import Layout from "@/components/layout/Layout";
 import Seo from "@/components/Seo";
 import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
-import { getMDXComponent } from 'mdx-bundler/client';
-import format from '@/lib/format'
+import { getMDXComponent } from "mdx-bundler/client";
+import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
- 
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  console.log(frontmatter, frontmatter.publishedAt);
+  const [toc, setToc] = React.useState();
+  const minLevel =
+    toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
+  React.useEffect(() => {
+    const headings = document.querySelectorAll('.mdx h1, .mdx h2, .mdx h3');
+    const headingArr = [];
+    headings.forEach((heading) => {
+      const id = heading.id;
+      const level = +heading.tagName.replace('H', '');
+      const text = heading.textContent + '';
 
+      headingArr.push({ id, level, text });
+    });
+
+    setToc(headingArr);
+  }, [frontmatter.slug]);
   return (
     <Layout>
       <Seo
@@ -26,17 +39,39 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                   {frontmatter.title}
                 </span>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                  {format(frontmatter.publishedAt, 'LL')}
+                  {format(frontmatter.publishedAt, "LL")}
                 </p>
-
-                <div className="flex items-center justify-start gap-2 my-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-                  <div className="flex items-center gap-1">{frontmatter.description}</div>
-                </div>
-
-
                 <Component />
-
               </article>
+
+              <aside className="py-4 mid:hidden">
+                <div className="sticky top-[84px] rounded-[8px] bg-white px-4 py-5 shadow dark:bg-[#121212]">
+                  {/* 执行列表 */}
+                  <div
+                    id="toc-container"
+                    className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
+                  >
+                    <h3 className="text-xl text-gray-900 dark:text-gray-100 dark:opacity-90">
+                      Table of Contents
+                    </h3>
+                    <div className="flex flex-col mt-4 space-y-2 text-sm">
+                      {toc
+                        ? toc.map(({ id, level, text }) => (
+                            // <TOCLink
+                            //   id={id}
+                            //   key={id}
+                            //   activeSection={activeSection}
+                            //   level={level}
+                            //   minLevel={minLevel}
+                            //   text={text}
+                            // />
+                            <span>{level} {text}</span>
+                          ))
+                        : null}
+                    </div>
+                  </div>
+                </div>
+              </aside>
             </section>
           </div>
         </section>
