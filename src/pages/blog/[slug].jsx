@@ -1,6 +1,8 @@
+import * as React from 'react';
 import Layout from "@/components/layout/Layout";
 import Seo from "@/components/Seo";
 import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
+import { getMDXComponent } from 'mdx-bundler/client';
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
@@ -8,7 +10,8 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
   //   "blog",
   //   recommendations
   // );
-  console.log(frontmatter);
+  const Component = React.useMemo(() => getMDXComponent(code), [code]);
+  console.log(Component);
 
   return (
     <Layout>
@@ -31,6 +34,10 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 <div className="flex items-center justify-start gap-2 my-2 text-sm font-medium text-gray-600 dark:text-gray-300">
                   <div className="flex items-center gap-1">xxxxx</div>
                 </div>
+
+
+                <Component />
+
               </article>
             </section>
           </div>

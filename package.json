@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.1",
+    "dayjs": "^1.11.7",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-canvas-nest": "^1.1.1",
