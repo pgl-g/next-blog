@@ -15,16 +15,15 @@ const navVal = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent bg-gray-600 bg-opacity-[98] backdrop-blur-[40px]">
+    <header className="sticky top-0 z-50 w-full bg-transparent bg-gradient-to-r from-gray-700 to-gray-500 bg-opacity-10">
       <section className="layout">
         <div className="mx-8 flex h-[60px] items-center justify-between leading-[60px]">
-          {/* 头部导航 */}
           <div className="flex h-full w-auto flex-row items-center justify-center gap-[24px] mb:hidden">
             {navVal.map((item) => {
               return (
                 <div key={item.name}>
                   <Link href={item.link}>
-                    <span className="hover:text-gray-400 text-gray-100">
+                    <span className="text-gray-100 hover:text-gray-400">
                       {item.name}
                     </span>
                   </Link>
@@ -32,7 +31,6 @@ export default function Header() {
               );
             })}
           </div>
-          {/* 地址 */}
           <div className="flex gap-[24px] text-[22px]">
             <a
               href="https://github.com/pgl-g"
