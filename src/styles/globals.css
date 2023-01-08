@@ -64,35 +64,36 @@ html.dark {
   /* #region  /**=========== Default Typography =========== */
   h1,
   .h1 {
-    @apply font-primary text-4xl font-bold;
+    @apply text-4xl font-bold font-primary;
   }
 
   h2,
   .h2 {
-    @apply font-primary text-3xl font-bold;
+    @apply text-3xl font-bold font-primary;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-2xl font-bold;
+    @apply text-2xl font-bold font-primary;
   }
 
   h4,
   .h4 {
-    @apply font-primary text-lg font-bold;
+    @apply text-lg font-bold font-primary;
   }
 
   body,
   .body {
-    @apply font-primary text-base;
+    @apply text-base font-primary;
   }
 
   /* #endregion  /**======== Default Typography =========== */
 
   .layout {
+    position: relative;
     max-width: 1400px;
     /* background-color: #222 */
-    @apply mx-auto w-full;
+    @apply w-full mx-auto;
   }
 
   .bg-dark a.custom-link {
@@ -172,7 +173,7 @@ html.dark {
 
 .animate-shadow {
   /* @apply after: absolute after:inset-0 after:z-[-1] after:opacity-0 after:transition-opacity hover:after:opacity-100;
-  @apply after: shadow-md dark:after:shadow-none; */
+  @apply shadow-md after: dark:after:shadow-none; */
 }
 
 ::-webkit-scrollbar {
