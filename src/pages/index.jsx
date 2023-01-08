@@ -10,19 +10,31 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data }) {
 
+  const getYear = (a) => new Date(a).getFullYear();
+
+  const isSameYear = (a, b) =>
+    a && b && getYear(a) === getYear(b);
+
   return (
     <Layout>
       <Seo />
       <main>
         <section>
           <div className="layout">
-            <ul className="mx-8 mt-12 grid gap-4 mb:mx-0" data-fade="1">
-              <div>
-                <span className="inline-block pb-2 text-[24px] text-[#aaa]">
-                  2022
-                </span>
-                <BlogCard data={data} />
-              </div>
+            <ul className="grid gap-4 mx-8 mt-12 mb:mx-0" data-fade="1">
+              {data.map((item, index) => (
+                <div key={item.slug}>
+                  {!isSameYear(
+                      item.publishedAt,
+                      data[index - 1]?.publishedAt
+                    ) && (
+                      <span className='inline-block pb-2 text-[24px] text-[#aaa]'>
+                        {getYear(item.publishedAt)}
+                      </span>
+                    )}
+                  <BlogCard data={item} key={item.slug} />
+                </div>
+              ))}
             </ul>
           </div>
         </section>
