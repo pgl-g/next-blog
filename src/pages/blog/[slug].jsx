@@ -7,10 +7,7 @@ import format from '@/lib/format'
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
-  // const populatedRecommendations = useInjectContentMeta(
-  //   "blog",
-  //   recommendations
-  // );
+ 
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
   console.log(frontmatter, frontmatter.publishedAt);
 
@@ -29,7 +26,7 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                   {frontmatter.title}
                 </span>
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                  {format(frontmatter.publishedAt, 'MMMM D, YYYY')}
+                  {format(frontmatter.publishedAt, 'LL')}
                 </p>
 
                 <div className="flex items-center justify-start gap-2 my-2 text-sm font-medium text-gray-600 dark:text-gray-300">

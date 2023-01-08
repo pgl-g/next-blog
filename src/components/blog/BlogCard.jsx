@@ -1,8 +1,7 @@
 import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
 import format from '@/lib/format'
-import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import Link from "next/link";
-dayjs.extend(LocalizedFormat);
+
 
 export default function BlogCard({ onClick, data }) {
   return (
