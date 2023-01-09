@@ -4,7 +4,8 @@
 
 .prose p,
 li {
-  @apply dark:text-gray-400;
+  /* @apply text-gray-400 dark:; */
+  color: rgb(156 163 175);
   margin-bottom: 1rem;
   line-height: 2;
 }
@@ -13,26 +14,46 @@ li {
   box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
 }
 
+.prose pre {
+  background-color: #282A36;
+  border-radius: 0.5em;
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    height: auto;
+}
+
+
 .prose code:not(:where([data-code-type='code-block'])) {
-  font-size: 85%;
-  padding: 0.2em 0.3em;
-  color: #687168;
-  background-color: #def5df;
-  border-radius: 4px;
-  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  @apply px-1 py-1 dark:border-gray-600 dark:bg-[#efefef];
+  color: #f8f8f2;
+  background: #282a36;
+  text-shadow: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  font-size: 1rem;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  hyphens: none;
 }
 
 .prose a {
   text-decoration: none;
 }
 
-.prose > ol > li > :last-child,
-.prose > ul > li > :last-child {
+.prose>ol>li> :last-child,
+.prose>ul>li> :last-child {
   margin-bottom: 0;
 }
-.prose > ol > li > :first-child,
-.prose > ul > li > :first-child {
+
+.prose>ol>li> :first-child,
+.prose>ul>li> :first-child {
   margin-top: 0;
 }
 
@@ -55,7 +76,7 @@ li {
   color: #9CA3AF;
   padding: 0.5rem 0;
   line-height: 2;
-  @apply dark:text-gray-500;
+  /* @apply text-gray-500 dark:; */
 }
 
 .prose hr {
@@ -64,8 +85,14 @@ li {
   border-image: linear-gradient(to right, #00ff9480, #00e0f380, #00c4fd80) 1;
 }
 
+
+/* .mdx.prose p {
+  color: rgb(156 163 175);
+} */
+
 .mdx.prose h2 {
   font-size: 20px;
+  cursor: pointer;
 }
 
 .mdx.prose h3 {
@@ -81,10 +108,10 @@ li {
   margin-right: 0.5rem;
   margin-bottom: 1rem;
   margin-top: 1.5rem;
-  @apply dark:text-[#fff] dark:opacity-90;
+  /* @apply dark: text-[#fff] dark:opacity-90; */
 }
 
-.mdx.prose :where(h1, h2, h3, h4) > a {
+.mdx.prose :where(h1, h2, h3, h4)>a {
   border-bottom: none;
 }
 
@@ -96,24 +123,28 @@ li {
 .mdx.prose.projects blockquote {
   font-style: normal;
 }
+
 .mdx.prose.projects blockquote:first-of-type h2 {
   margin-top: 1rem;
 }
+
 .mdx.prose.projects blockquote.with-icons h2 {
   margin-bottom: 0;
 }
 
 /* Apply shadow to Youtube Embed */
 .mdx.prose .yt-lite {
-  @apply overflow-hidden rounded shadow-sm dark:shadow-none;
+  /* @apply overflow-hidden rounded shadow-sm shadow-none dark:; */
 }
 
 /** HASH ANCHOR */
 .hash-anchor {
-  @apply inset-y-0 w-full;
+  /* @apply inset-y-0 w-full; */
+  /* width: 100%;
   position: absolute;
+  top: 0; bottom: 0;
   background-image: none;
-  transition: none;
+  transition: none; */
 }
 
 .hash-anchor:hover:after,
@@ -122,6 +153,6 @@ li {
 }
 
 .hash-anchor:after {
-  @apply absolute invisible text-lg -translate-y-1/2 -right-5 top-1/2 text-primary-400 dark:text-primary-300;
+  /* @apply absolute invisible text-lg -translate-y-1/2 -right-5 top-1/2 text-primary-400 dark: text-primary-300; */
   content: '#';
 }

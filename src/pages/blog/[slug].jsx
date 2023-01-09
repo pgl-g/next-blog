@@ -45,19 +45,19 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
               </article>
 
               <aside className="py-4 mid:hidden">
-                <div className="sticky top-[84px] rounded-[8px] bg-white px-4 py-5 shadow">
+                <div className="sticky top-[84px] rounded-[8px] px-4 py-5 shadow">
                   {/* 执行列表 */}
                   <div
                     id="toc-container"
-                    className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
+                    className="block text-[#fff] max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
                   >
-                    <h3 className="text-xl text-gray-900">
+                    <h3 className="text-xl">
                       目录
                     </h3>
                     <div className="flex flex-col mt-4 space-y-2 text-sm">
                       {toc
                         ? toc.map(({ id, level, text }) => (
-                            <span>
+                            <span key={id}>
                               {level} {text}
                             </span>
                           ))
