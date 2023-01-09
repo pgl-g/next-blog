@@ -47,6 +47,7 @@ export default function TableContents({ toc, activeSection, minLevel }) {
         {toc
           ? toc.map(({ id, level, text }) => (
               <UnstyledLink
+                key={id}
                 href={`#${id}`}
                 id={`link-${id}`}
                 className={`
