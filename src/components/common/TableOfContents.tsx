@@ -1,12 +1,11 @@
-import * as React from "react";
+import React, { useRef, useEffect } from "react";
 
-import Link from "next/link";
+import UnstyledLink from "@/components/links/UnstyledLink";
 
 export default function TableOfContents({ toc, activeSection, minLevel }) {
-  //#region  //*=========== Scroll into view ===========
-  const lastPosition = React.useRef(0);
+  const lastPosition = useRef(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const container = document.getElementById("toc-container");
     const activeLink = document.getElementById(`link-${activeSection}`);
 
@@ -47,9 +46,18 @@ export default function TableOfContents({ toc, activeSection, minLevel }) {
       <div className="flex flex-col mt-4 space-y-2 text-sm">
         {toc
           ? toc.map(({ id, level, text }) => (
-              <Link key={id} href={`#${id}`}>
+              <UnstyledLink
+                href={`#${id}`}
+                id={`link-${id}`}
+                className={`
+                 font-medium hover:text-gray-200 focus:outline-none
+                focus-visible:text-gray-200 ${
+                  activeSection === id ? "text-gray-100" : "text-gray-500"
+                }`}
+                style={{ marginLeft: (level - minLevel) * 8 }}
+              >
                 {text}
-              </Link>
+              </UnstyledLink>
             ))
           : null}
       </div>
