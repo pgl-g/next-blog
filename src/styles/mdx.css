@@ -103,7 +103,7 @@ li {
 }
 
 .mdx.prose :where(h1, h2, h3, h4):hover {
-  color: #3385ff;
+  color: #c95cad;
 }
 
 /* Custom Heading Style for Projects */
@@ -117,29 +117,4 @@ li {
 
 .mdx.prose.projects blockquote.with-icons h2 {
   margin-bottom: 0;
-}
-
-/* Apply shadow to Youtube Embed */
-.mdx.prose .yt-lite {
-  /* @apply overflow-hidden rounded shadow-sm shadow-none dark:; */
-}
-
-/** HASH ANCHOR */
-.hash-anchor {
-  /* @apply inset-y-0 w-full; */
-  width: 100%;
-  position: absolute;
-  top: 0; left: 8.5rem;
-  background-image: none;
-  transition: none;
-}
-
-.hash-anchor:hover:after,
-.hash-anchor:focus:after {
-  visibility: visible;
-}
-
-.hash-anchor:after {
-  /* @apply absolute invisible text-lg -translate-y-1/2 -right-5 top-1/2 text-primary-400 dark: text-primary-300; */
-  content: '#';
 }
