@@ -7,6 +7,7 @@ import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 import TableContents from "@/components/TableContents";
 import MDXComponents from "@/components/MDXComponents";
+import CustomLink from '@/components/links/CustomLink'
 import useScrollSpy from "@/hooks/useScrollspy";
 import Link from "next/link";
 
@@ -16,6 +17,8 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
   const minLevel =
     toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
   const activeSection = useScrollSpy();
+
+  
   useEffect(() => {
     const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
     const headingArr = [];
@@ -63,6 +66,9 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 </div>
               </aside>
             </section>
+            <div className='flex gap-4 mt-8 text-white'>
+              <CustomLink href='/'>← Back to blog</CustomLink>
+            </div>
           </div>
         </section>
       </main>

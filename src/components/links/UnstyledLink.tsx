@@ -8,7 +8,6 @@ const UnstyledLink = forwardRef(
       openNewTab !== undefined
         ? openNewTab
         : href && !href.startsWith('/') && !href.startsWith('#');
-    console.log(isNewTab, '十四行诗', href)
     if (!isNewTab) {
       return (
         <Link
