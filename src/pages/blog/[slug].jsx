@@ -5,7 +5,7 @@ import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
 import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
-import TableOfContents from "@/components/common/TableOfContents";
+import TableContents from "@/components/TableContents";
 import MDXComponents from "@/components/MDXComponents";
 import useScrollSpy from "@/hooks/useScrollspy";
 import Link from "next/link";
@@ -55,7 +55,7 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
 
               <aside className="py-4 mid:hidden">
                 <div className="sticky top-[84px] rounded-[8px] px-4 py-5 shadow">
-                  <TableOfContents
+                  <TableContents
                     toc={toc}
                     minLevel={minLevel}
                     activeSection={decodeURI(activeSection)}

@@ -1,7 +1,7 @@
 import Image from 'next/legacy/image';
 
 // import GithubCard from '@/components/content/card/GithubCard';
-import CustomCode, { Pre } from '@/components/common/CustomCode';
+import CustomCode, { Pre } from '@/components/CustomCode';
 // import SplitImage, { Split } from '@/components/content/SplitImage';
 import CustomLink from '@/components/links/CustomLink';
 // import TechIcons from '@/components/TechIcons';

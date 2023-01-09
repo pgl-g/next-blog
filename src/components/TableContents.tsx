@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 
 import UnstyledLink from "@/components/links/UnstyledLink";
 
-export default function TableOfContents({ toc, activeSection, minLevel }) {
+export default function TableContents({ toc, activeSection, minLevel }) {
   const lastPosition = useRef(0);
 
   useEffect(() => {
