@@ -52,7 +52,7 @@ li {
 }
 
 .prose blockquote p {
-  color: #777;
+  color: #9CA3AF;
   padding: 0.5rem 0;
   line-height: 2;
   @apply dark:text-gray-500;
@@ -73,7 +73,7 @@ li {
 }
 
 .mdx.prose :where(h1, h2, h3, h4) {
-  color: #1f2d3d;
+  color: #fff;
   scroll-margin-top: 100px;
   position: relative;
   display: block;
@@ -122,6 +122,6 @@ li {
 }
 
 .hash-anchor:after {
-  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
+  @apply absolute invisible text-lg -translate-y-1/2 -right-5 top-1/2 text-primary-400 dark:text-primary-300;
   content: '#';
 }
