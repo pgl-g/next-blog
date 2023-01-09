@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useRef, useState }  from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { HiCheckCircle, HiClipboard } from "react-icons/hi";
 
@@ -17,8 +17,8 @@ export function Pre(props) {
 }
 
 export default function CustomCode(props) {
-  const textRef = React.useRef(null);
-  const [isCopied, setIsCopied] = React.useState(false);
+  const textRef = useRef(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   const language = props.className?.includes("language")
     ? props.className.replace("language-", "").replace(" code-highlight", "")

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React from "react";
 import Link from "next/link";
 import { BsGithub } from 'react-icons/bs';
 

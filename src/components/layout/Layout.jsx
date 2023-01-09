@@ -2,7 +2,6 @@ import * as React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Plum from "@/components/layout/Plum";
-// import ReactCanvasNest from 'react-canvas-nest';
 
 export default function Layout({ children }) {
   return (
@@ -15,8 +14,6 @@ export default function Layout({ children }) {
         </div>
       </div>
       <Plum />
-
-      {/* <ReactCanvasNest /> */}
     </>
   );
 }

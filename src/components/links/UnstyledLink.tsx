@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 
 
-const UnstyledLink = React.forwardRef(
+const UnstyledLink = forwardRef(
   ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
     const isNewTab =
       openNewTab !== undefined

@@ -1,11 +1,11 @@
 import throttle from 'lodash/throttle';
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // originally based on
 // https://github.com/NotionX/react-notion-x/blob/master/packages/react-notion-x/src/block.tsx#L128-L161
 
 export default function useScrollSpy() {
-  const [activeSection, setActiveSection] = React.useState(null);
+  const [activeSection, setActiveSection] = useState(null);
   const throttleMs = 100;
 
   const actionSectionScrollSpy = throttle(() => {
@@ -40,7 +40,7 @@ export default function useScrollSpy() {
     setActiveSection(currentSectionId);
   }, throttleMs);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', actionSectionScrollSpy);
 
     actionSectionScrollSpy();
@@ -48,7 +48,6 @@ export default function useScrollSpy() {
     return () => {
       window.removeEventListener('scroll', actionSectionScrollSpy);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return activeSection;

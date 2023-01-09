@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import Seo from "@/components/Seo";
 import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
@@ -6,17 +6,17 @@ import { getMDXComponent } from "mdx-bundler/client";
 import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 import TableOfContents from "@/components/common/TableOfContents";
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from "@/components/MDXComponents";
 import useScrollSpy from "@/hooks/useScrollspy";
 import Link from "next/link";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
-  const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  const [toc, setToc] = React.useState();
+  const Component = useMemo(() => getMDXComponent(code), [code]);
+  const [toc, setToc] = useState();
   const minLevel =
     toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
   const activeSection = useScrollSpy();
-  React.useEffect(() => {
+  useEffect(() => {
     const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
     const headingArr = [];
     headings.forEach((heading) => {
@@ -46,12 +46,10 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 <p className="mt-2 text-sm text-gray-300">
                   {format(frontmatter.publishedAt, "LL")}
                 </p>
-                <Component 
-                  components={
-                    {
-                      ...MDXComponents
-                    }
-                  }
+                <Component
+                  components={{
+                    ...MDXComponents,
+                  }}
                 />
               </article>
 

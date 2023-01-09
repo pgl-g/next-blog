@@ -1,7 +1,5 @@
-import * as React from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import useSWR from "swr";
-
-// import { pickContentMeta } from "@/lib/contentMeta";
 
 const cleanBlogPrefix = (slug) => {
   if (slug.slice(0, 3) === 'id-') {
@@ -16,17 +14,17 @@ export default function useInjectContentMeta(type, frontmatter) {
     process.env.NODE_ENV === 'production' ? "/api/constants" : null
   );
   const isLoading = !error;
-  const meta = React.useMemo(
+  const meta = useMemo(
     () => type,
     [type]
   );
 
   const [populatedContent, setPopulatedContent] =
-    React.useState(
+    useState(
       () => [...frontmatter]
     );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (meta) {
       const mapped = frontmatter.map((fm) => {
         const views = meta.find(
