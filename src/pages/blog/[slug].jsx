@@ -5,12 +5,17 @@ import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
 import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
+import TableOfContents from "@/components/common/TableOfContents";
+import MDXComponents from '@/components/MDXComponents';
+import useScrollSpy from "@/hooks/useScrollspy";
+import Link from "next/link";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
   const Component = React.useMemo(() => getMDXComponent(code), [code]);
   const [toc, setToc] = React.useState();
   const minLevel =
     toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
+  const activeSection = useScrollSpy();
   React.useEffect(() => {
     const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
     const headingArr = [];
@@ -41,29 +46,22 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 <p className="mt-2 text-sm text-gray-300">
                   {format(frontmatter.publishedAt, "LL")}
                 </p>
-                <Component />
+                <Component 
+                  components={
+                    {
+                      ...MDXComponents
+                    }
+                  }
+                />
               </article>
 
               <aside className="py-4 mid:hidden">
                 <div className="sticky top-[84px] rounded-[8px] px-4 py-5 shadow">
-                  {/* 执行列表 */}
-                  <div
-                    id="toc-container"
-                    className="block text-[#fff] max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
-                  >
-                    <h3 className="text-xl">
-                      目录
-                    </h3>
-                    <div className="flex flex-col mt-4 space-y-2 text-sm">
-                      {toc
-                        ? toc.map(({ id, level, text }) => (
-                            <span key={id}>
-                              {level} {text}
-                            </span>
-                          ))
-                        : null}
-                    </div>
-                  </div>
+                  <TableOfContents
+                    toc={toc}
+                    minLevel={minLevel}
+                    activeSection={decodeURI(activeSection)}
+                  />
                 </div>
               </aside>
             </section>

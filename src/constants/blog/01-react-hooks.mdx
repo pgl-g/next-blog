@@ -16,7 +16,7 @@ tags: 'react-hooks'
 
 先回想下，useState是如何调用的？
 
-```js
+```javascript
 const Components = () => {
     const [value, setValue] = useState(0);
     return <button onClick={() => setValue(1)}>{value}</button>
@@ -27,7 +27,7 @@ useState实现了：
 - 返回一个数组，一个初始值和调用set更新之后的值
 - 调用set方法时，替换原来state状态，类似于class组件里this.setState
 
-```
+```javascript
 // 定义初始值
 let currenInitValue;
 function _UseState(initialValue) {
@@ -48,7 +48,7 @@ function _UseState(initialValue) {
 当然事情没那么简单，实际上useState在整个app中，甚至时单个组件内都通常都不会值调用一次，那将如何实现呢？当然不要破坏useState执行顺序。
 
 
-```
+```javascript
 // 下标
 let index = 0;
 // 利用收纳盒原理。存储调用者不同的存储值
@@ -73,7 +73,7 @@ function _UseState(initialValue) {
 ## useEffect如何实现？
 useEffect是如何调用的？
 
-```
+```javascript
 const Components = () => { 
     const [value, setValue] = useState(0); 
     useEffect(() => {...}, [value])
@@ -89,8 +89,7 @@ useEffect原理是什么？
 - 比较本次render和上一次render依赖，执行回调
 - 增加副作用清除（effect触发后会将清除函数暂存起来，等下次触发时执行）
 
-```
-    
+```javascript
 let index = 0;
 // 同一组件下可能会出现多个useEffect使用，以数组的形式存储
 let lastDepsBox = [];

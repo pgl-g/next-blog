@@ -25,22 +25,13 @@ li {
 
 
 .prose code:not(:where([data-code-type='code-block'])) {
-  color: #f8f8f2;
-  background: #282a36;
-  text-shadow: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  font-size: 1rem;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  hyphens: none;
+  font-size: 85%;
+  padding: 0.2em 0.3em;
+  color: #687168;
+  background-color: #def5df;
+  border-radius: 4px;
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  @apply px-1 py-1 dark:border-gray-600 dark:bg-[#efefef];
 }
 
 .prose a {
@@ -85,10 +76,6 @@ li {
   border-image: linear-gradient(to right, #00ff9480, #00e0f380, #00c4fd80) 1;
 }
 
-
-/* .mdx.prose p {
-  color: rgb(156 163 175);
-} */
 
 .mdx.prose h2 {
   font-size: 20px;
@@ -140,11 +127,11 @@ li {
 /** HASH ANCHOR */
 .hash-anchor {
   /* @apply inset-y-0 w-full; */
-  /* width: 100%;
+  width: 100%;
   position: absolute;
-  top: 0; bottom: 0;
+  top: 0; left: 8.5rem;
   background-image: none;
-  transition: none; */
+  transition: none;
 }
 
 .hash-anchor:hover:after,
