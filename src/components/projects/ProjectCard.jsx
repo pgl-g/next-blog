@@ -10,14 +10,14 @@ export default function ProjectCard({ project }) {
           href={prjectItem.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="h-full p-4 cursor-pointer group hover:bg-gray-900 rounded-xl"
+          className="h-full p-4 bg-gray-900 cursor-pointer group rounded-xl"
         >
           <section className="flex items-center gap-[24px]">
             <div className="text-[38px] opacity-50 group-hover:opacity-70">
               {prjectItem.icon}
             </div>
             <div>
-              <h4 className="text-[#555] group-hover:text-gray-200">
+              <h4 className="text-gray-200 group-hover:text-white">
                 {prjectItem.title}
               </h4>
               <p className="mb-auto text-sm text-gray-400 opacity-50">

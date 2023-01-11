@@ -1,5 +1,6 @@
 import {
   SiNextdotjs,
+  SiShopify
 } from 'react-icons/si';
 export const projectsConfig = [
   {
@@ -14,4 +15,16 @@ export const projectsConfig = [
       },
     ],
   },
+  {
+    category: "Vue Ecosystem",
+    child: [
+      {
+        title: "vue-spuermarket",
+        description:
+          "Vue2.0 family bucket development e-commerce management system",
+        link: "https://github.com/pgl-g/HY-supermarket",
+        icon: <SiShopify />,
+      },
+    ],
+  }
 ];
