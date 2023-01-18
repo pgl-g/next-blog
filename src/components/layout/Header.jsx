@@ -15,7 +15,7 @@ const navVal = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent bg-gradient-to-r from-gray-800 to-gray-700 bg-opacity-10">
+    <header className="fixed top-0 z-50 w-full bg-transparent bg-gradient-to-r from-gray-800 to-gray-700 bg-opacity-10">
       <section className="layout">
         <div className="mx-8 flex h-[60px] items-center justify-between leading-[60px]">
           <div className="flex h-full w-auto flex-row items-center justify-center gap-[24px] mb:hidden">
