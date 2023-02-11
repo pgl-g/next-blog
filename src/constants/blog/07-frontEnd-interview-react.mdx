@@ -1,0 +1,491 @@
+---
+title: 前端面试-react
+description: 说说你对react的理解？有哪些特性？
+publishedAt: '2023-02-10'
+lastUpdated: '2023-02-10'
+tags: 'react'
+---
+### 1、说说你对react的理解？有哪些特性？
+React是用于构建用户界面的Javascript库，只提供了UI层面解决方案，遵循组件设计模式、声明式编程范式和函数式编程概念，使前端应用程序更加高效
+
+> 特性：JSX语法、单项数据绑定、虚拟DOM、声明式编程、Component
+react 类组件使用一个名为 render() 的方法或者函数组件return，接收输入的数据并返回需要展示的内容
+```javascript
+class HelloMessage extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
+ 
+ReactDOM.render(
+  <HelloMessage name="Taylor" />,
+  document.getElementById("hello-example")
+);
+```
+* 优势
+
+1.高效灵活
+
+2.声明式的设计，简单使用
+
+3.组件式开发，提高代码复用率
+
+4.单向响应的数据流会比双向绑定的更安全，速度更快
+
+***
+
+### 2、说说React生命周期有哪些不同的阶段？每个阶段对应的方法是？
+React生命周期就是包括从创建，初始化数据、编译模板、挂载DOM、渲染、更新渲染、卸载等一系列的过程
+
+可以划分为三个阶段：创建阶段、更新阶段、卸载阶段 
+```javascript
+创建阶段：
+        constructor
+        getDerivedStateFromProps
+        render
+        componentDidMount
+更新阶段：
+        getDerivedStateFromProps
+        shouldComponentUpdate
+        render
+        getSnapshotBeforeUpdate
+        componentDidUpdate
+卸载阶段：
+        componentWillUnmount
+```
+新版生命周期：
+![Alt text](https://img-blog.csdnimg.cn/7f618f9297e946e389a28055aca8c0d9.png "title")
+旧的生命周期：
+![Alt text](https://img-blog.csdnimg.cn/0e2c0d196394471bbe448bb42b37ccd2.png "title")
+
+通过两个图的对比，可以发现新版的生命周期减少了以下三种方法：
+
+1.componentWillMount
+
+2.componentWillReceiveProps
+
+3.componentWillUpdate
+
+其实这三个方法仍然存在，只是在前者加上了UNSAFE_前缀，如UNSAFE_componentWillMount，
+
+并不像字面意思那样表示不安全，而是表示这些生命周期的代码可能在未来的 react版本可能废除
+
+同时也新增了两个生命周期函数：
+
+1.getDerivedStateFromProps
+
+2.getSnapshotBeforeUpdate
+### 3、说说你对React中虚拟dom的理解？
+虚拟DOM是一种编程概念，就是一颗虚拟的Javascript对象树，它将真实的dom转换为一个个js对象，保存在内存中       
+
+> 虚拟DOM通过js模拟网页文档节点，生成虚拟DOM树，然后进一步生成真实的DOM树，渲染到页面，如果内容发生改变，React会重新生成一棵全新的虚拟DOM树，与前边的旧的虚拟DOM进行比较，通过diff算法，将变化的部分打包成patch，再次应用到真实DOM中，重新渲染页面。
+![Alt text](https://img-blog.csdnimg.cn/img_convert/fcc1edfe41ace48ca405e10cb7ba102b.webp?x-oss-process=image/format,png "title")
+总结
+
+1.React 通过制定大胆的 diff 策略，将 O(n3) 复杂度的问题转换成 O(n) 复杂度的问题；
+
+2.React 通过分层求异的策略，对 tree diff 进行算法优化；
+
+3.React 通过相同类生成相似树形结构，不同类生成不同树形结构的策略，对 component diff 进行算法优化；
+
+4.React 通过设置唯一 key的策略，对 element diff 进行算法优化
+
+### 4、说说Real diff算法是怎么运作的？
+Diff算法是为了节省性能而设计的，diff算法和虚拟dom的结合。
+
+> 基本流程：在第一次render在执行的时候会将第一次的虚拟DOM做依次缓存，当第二次渲染时会将新的虚拟DOM和旧的虚拟DOM进行比较，计算出虚拟DOM中真正发生变化的部分，从而值针对变化的部分进行更新渲染，避免造成性能的浪费 
+![Alt text](https://img-blog.csdnimg.cn/img_convert/a3c40e456f5f6b5ae4791daac4839733.webp?x-oss-process=image/format,png "title")
+### 5、说说你对react hook的理解？
+> Hook是React16.8新增特性，可以让你在不编写class的情况下使用state以及一些其他的React特性；函数组件是无状态组件，Hook使函数组件的功能得到了扩充，拥有了类组件相似的功能，Hook还拥有代码的复用机制，更加方便灵活。
+>
+> 常见的Hook:useState()、useEffect()、useReducer()、useCallback()、useMemo()、useRef()
+useState
+
+首先给出一个例子，如下：
+```javascript
+import React, { useState } from 'react';
+ 
+function Example() {
+  // 声明一个叫 "count" 的 state 变量
+  const [count, setCount] = useState(0);
+ 
+  return (
+    <div>
+      <p>You clicked {count} times</p >
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+在函数组件中通过useState实现函数内部维护state，参数为state默认的值，返回值是一个数组，第一个值为当前的state，第二个值为更新state的函数
+
+该函数组件等价于的类组件如下：
+```javascript
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+ 
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p >
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+```
+从上述两种代码分析，可以看出两者区别：
+
+1.state声明方式：在函数组件中通过 useState 直接获取，类组件通过constructor 构造函数中设置
+
+2.state读取方式：在函数组件中直接使用变量，类组件通过this.state.count的方式获取
+
+3.state更新方式：在函数组件中通过 setCount 更新，类组件通过this.setState()
+
+总的来讲，useState 使用起来更为简洁，减少了this指向不明确的情况
+
+### 6、React组件之间如何通信？
+React组件通信就是值组件通过某种方式来传递信息以达到某个目的
+
+方式：
+
+1.父组件向子组件传递信息：由于react数据流动是单向的，父组件在调用子组件时，只需要在子组件标签内传递参数，子组件通过props属性接收
+```javascript
+function EmailInput(props) {
+  return (
+    <label>
+      Email: <input value={props.email} />
+    </label>
+  );
+}
+ 
+const element = <EmailInput email="123124132@163.com" />;
+```
+2.子组件向父组件传递信息；父组件向子组件传递一个函数，然后通过这个函数的回调，拿到子组件传过来的值
+
+父组件对应代码如下：
+```javascript
+class Parents extends Component {
+  constructor() {
+    super();
+    this.state = {
+      price: 0
+    };
+  }
+ 
+  getItemPrice(e) {
+    this.setState({
+      price: e
+    });
+  }
+ 
+  render() {
+    return (
+      <div>
+        <div>price: {this.state.price}</div>
+        {/* 向子组件中传入一个函数  */}
+        <Child getPrice={this.getItemPrice.bind(this)} />
+      </div>
+    );
+  }
+}
+```
+子组件对应代码如下：
+```javascript
+class Child extends Component {
+  clickGoods(e) {
+    // 在此函数中传入值
+    this.props.getPrice(e);
+  }
+ 
+  render() {
+    return (
+      <div>
+        <button onClick={this.clickGoods.bind(this, 100)}>goods1</button>
+        <button onClick={this.clickGoods.bind(this, 1000)}>goods2</button>
+      </div>
+    );
+  }
+}
+```
+1.兄弟组件之间的传递：父组件作为中间层来实现数据的互通，通过使用父组件传递
+```javascript
+class Parent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {count: 0}
+  }
+  setCount = () => {
+    this.setState({count: this.state.count + 1})
+  }
+  render() {
+    return (
+      <div>
+        <SiblingA
+          count={this.state.count}
+        />
+        <SiblingB
+          onClick={this.setCount}
+        />
+      </div>
+    );
+  }
+}
+```
+2.父组件向后代组件传值：使用context提供的组件通信的一种方式，可以实现数据的共享，Provider组件通过value属性传递给后代组件
+
+3.非关系组件传递数据：将数据进行一个全局的资源管理，从而实现组件间的通信功能，例如redux
+***
+### 7、说说你对受控组件和非受控组件的理解？应用场景？
+> 受控组件：简单说就是收到setState的控制，组件的状态全程响应外部数据
+举个简单的例子：
+
+```javascript
+class TestComponent extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { username: 'lindaidai' };
+  }
+  render () {
+    return <input name="username" value={this.state.username} />
+  }
+}
+```
+这时候当我们在输入框输入内容的时候，会发现输入的内容并无法显示出来，也就是input标签是一个可读的状态
+
+这是因为value被this.state.username所控制住。当用户输入新的内容时，this.state.username并不会自动更新，这样的话input内的内容也就不会变了
+
+如果想要解除被控制，可以为input标签设置onChange事件，输入的时候触发事件函数，在函数内部实现state的更新，从而导致input框的内容页发现改变
+
+因此，受控组件我们一般需要初始状态和一个状态更新事件函数
+
+> 非受控组件：不受setState的控制，一般在初始化的时候接收外部的数据，然后自己在内部存储其自身的状态
+```javascript
+import React, { Component } from 'react';
+ 
+export class UnControll extends Component {
+  constructor (props) {
+    super(props);
+    this.inputRef = React.createRef();
+  }
+  handleSubmit = (e) => {
+    console.log('我们可以获得input内的值为', this.inputRef.current.value);
+    e.preventDefault();
+  }
+  render () {
+    return (
+      <form onSubmit={e => this.handleSubmit(e)}>
+        <input defaultValue="lindaidai" ref={this.inputRef} />
+        <input type="submit" value="提交" />
+      </form>
+    )
+  }
+}
+```
+应用场景：
+
+  受控组件：强制输入格式、一个数据的多个输入、动态输入、提交时的验证问题
+
+  非受控组件：一次性取值（提交时）、提交时的验证
+***
+### 8、说说Connect组件的原理是什么？
+> Connect连接redux和react,包裹在我们容器组件外层，接收上边的Provider提供的store里state和dispatch，传给一个构造函数，返回一个对象，以属性的形式传递给我们的容器组件
+>
+> Connect是一个高阶函数，首先传入mapStateToProps、mapDispatchToProps，然后返回Component函数，然后将真正的Component作为参数传入，从而返回一个新的组件
+***
+### 9、说说react 中jsx语法糖的本质？
+> Jsx的本质就是函数React.createElement的语法糖，所有的jsx语法都会最终经过babel.js转化为React.createElement这个函数调用
+>
+> 三个参数：type是指的当前的元素类型，config是jsx属性，以对象的属性和值的形式存储，children是存放在标签中的内容
+***
+### 10、说说你对redux中间件的理解？常用的中间件有哪些？实现原理？
+>  Redux中间件就是介于应用系统和系统软件之间的一类软件，使用系统软件提供的基础服务，衔接网络上应用系统的各个部分或者是不同的应用，达到资源共享，功能共享的目的
+![Alt text](https://img-blog.csdnimg.cn/img_convert/84cfbad6d39a7cfc1dd118bc640d2223.png "title")
+常用的中间件：
+
+  redux-thunk用于异步操作
+```javascript
+const getHomeMultidataAction = () => {
+  return (dispatch) => {
+    axios.get("http://xxx.xx.xx.xx/test").then(res => {
+      const data = res.data.data;
+      dispatch(changeBannersAction(data.banner.list));
+      dispatch(changeRecommendsAction(data.recommend.list));
+    })
+  }
+}
+```
+redux-logger用于日志的记录
+
+```javascript
+import { applyMiddleware, createStore } from 'redux';
+import createLogger from 'redux-logger';
+const logger = createLogger();
+ 
+const store = createStore(
+  reducer,
+  applyMiddleware(logger)
+);
+```
+> 实现原理：所有中间件被放进一个数组中嵌套执行，判断传递过来的数据类型，最后执行store.dispatch，中间件内部middleware API可以拿到getstate和dispatch方法。
+***
+### 11、说说React jsx转换成真实DOM的过程？
+> 1.使用React.createElement或jsx编写react组件，实际上所有的jsx代码最后都会转换成React.ccreateElement(...)，babel帮助我们完成转换的过程
+>
+> 2.createElement函数对于key和ref等特殊的props进行处理，并获取defaultProps对默认的props进行赋值，并且对传入的子节点进行处理，最终构成一个虚拟DOM对象
+>
+> 3.ReactDOM.render将生成好的虚拟DOM渲染到指定的容器上，其中采用了批处理，事务等机制并且对特定的浏览器进行了性能优化，最终转换为真实DOM
+JSX通过babel最终转化成React.createElement这种形式，例如：
+```javascript
+<div>
+  < img src="avatar.png" className="profile" />
+  <Hello />
+</div>
+```
+会被bebel转化成如下：
+```javascript
+React.createElement(
+  "div",
+  null,
+  React.createElement("img", {
+    src: "avatar.png",
+    className: "profile"
+  }),
+  React.createElement(Hello, null)
+);
+```
+在转化过程中，babel在编译时会判断 JSX 中组件的首字母：
+
+1.当首字母为小写时，其被认定为原生 DOM 标签，createElement 的第一个变量被编译为字符串
+
+2.当首字母为大写时，其被认定为自定义组件，createElement 的第一个变量被编译为对象
+
+最终都会通过RenderDOM.render(...)方法进行挂载，如下：
+```javascript
+ReactDOM.render(<App />,  document.getElementById("root"));
+```
+### 12、说说你对@reduxjs/toolkit的理解？和react-redux有什么区别？
+React-redux是官方react UI绑定层，允许React组件从redux存储中读取数据，并将操作分派到存储以更新的状态。提供了connect,Provider等API，帮助我们连接react和redux，实现的逻辑会更加的严谨高效
+
+  @reduxjs/tookit是对Redux的二次封装，开箱即用的一个高效的Redux开发工具，使得创建store，更新store
+
+区别：
+
+> 1. reduxjs/tookit相对于react-redux来说比较方便，集成了redux-devtools-extension，不需要额外的配置，非常方便
+>
+> 2.reduxjs/tookit集成immutable-js的功能，不需要安装配置使用，提升了开发效率
+>
+> 3.reduxjs/tookit集成了redux-thunk的功能，reduxjs/tookit将types、actions、reducers放在一起组成了全新的slices，简化了我们的使用
+***
+### 13、React render方法的原理，在什么时候会触发？
+> Render函数在react中有两种形式，在类组件中指的是render方法，在函数组件中，指的是函数组件本身，在render中我们会编写jsx，jsx通过babel编译后就会转化为我们熟悉的js格式，在render过程中，React将新调用的render函数返回的树与旧版本的树进行比较，决定如何更新DOM，然后进行diff比较，更新DOM树
+
+触发时机：
+
+  类组件调用setState修改状态时；点击按钮，则调用setState方法，无论count发生变化辩护，控制台都会输出Foo render，证明render执行了
+```javascript
+class Foo extends React.Component {
+  state = { count: 0 };
+ 
+  increment = () => {
+    const { count } = this.state;
+ 
+    const newCount = count < 10 ? count + 1 : count;
+ 
+    this.setState({ count: newCount });
+  };
+ 
+  render() {
+    const { count } = this.state;
+    console.log("Foo render");
+ 
+    return (
+      <div>
+        <h1> {count} </h1>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+```
+函数组件通过useState Hook修改状态时；函数组件通过useState这种形式更新数据，当数组的值不发生改变了，就不会触发render
+```javascript
+function Foo() {
+  const [count, setCount] = useState(0);
+ 
+  function increment() {
+    const newCount = count < 10 ? count + 1 : count;
+    setCount(newCount);
+  }
+ 
+  console.log("Foo render");
+  
+  return (
+    <div>
+      <h1> {count} </h1>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+```
+类组件重新渲染时；只要点击了 App 组件内的 Change name 按钮，不管 Foo 具体实现是什么，都会被重新render渲染
+```javascript
+class App extends React.Component {
+  state = { name: "App" };
+  render() {
+    return (
+      <div className="App">
+        <Foo />
+        <button onClick={() => this.setState({ name: "App" })}>
+          Change name
+        </button>
+      </div>
+    );
+  }
+}
+ 
+function Foo() {
+  console.log("Foo render");
+ 
+  return (
+    <div>
+      <h1> Foo </h1>
+    </div>
+  );
+}
+```
+函数组件重新渲染时；可以发现，使用useState来更新状态的时候，只有首次会触发Foo render，后面并不会导致Foo render
+```javascript
+function App(){
+    const [name,setName] = useState('App')
+ 
+    return (
+        <div className="App">
+            <Foo />
+            <button onClick={() => setName("aaa")}>
+                { name }
+            </button>
+      </div>
+    )
+}
+ 
+function Foo() {
+  console.log("Foo render");
+ 
+  return (
+    <div>
+      <h1> Foo </h1>
+    </div>
+  );
+}
+```
+
