@@ -9,11 +9,9 @@ import { getAllFilesFrontmatter } from "@/lib/mdx";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data }) {
-
   const getYear = (a) => new Date(a).getFullYear();
 
-  const isSameYear = (a, b) =>
-    a && b && getYear(a) === getYear(b);
+  const isSameYear = (a, b) => a && b && getYear(a) === getYear(b);
 
   return (
     <Layout>
@@ -25,13 +23,13 @@ export default function Home({ data }) {
               {data.map((item, index) => (
                 <div key={item.slug}>
                   {!isSameYear(
-                      item.publishedAt,
-                      data[index - 1]?.publishedAt
-                    ) && (
-                      <span className='inline-block pb-2 text-[24px] text-[#aaa]'>
-                        {getYear(item.publishedAt)}
-                      </span>
-                    )}
+                    item.publishedAt,
+                    data[index - 1]?.publishedAt
+                  ) && (
+                    <span className="inline-block pb-2 text-[24px] text-[#aaa]">
+                      {getYear(item.publishedAt)}
+                    </span>
+                  )}
                   <BlogCard data={item} key={item.slug} />
                 </div>
               ))}
@@ -46,5 +44,11 @@ export default function Home({ data }) {
 export async function getStaticProps() {
   const files = await getAllFilesFrontmatter("blog");
 
-  return { props: { data: files } };
+  const filesSort = files.sort(
+    (a, b) =>
+      new Date(b.lastUpdated ?? b.publishedAt).valueOf() -
+      new Date(a.lastUpdated ?? a.publishedAt).valueOf()
+  );
+
+  return { props: { data: filesSort } };
 }

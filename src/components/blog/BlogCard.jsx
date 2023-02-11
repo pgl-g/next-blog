@@ -35,7 +35,7 @@ export default function BlogCard({ data, onClick }) {
           </div>
 
           <div className="flex flex-wrap justify-end w-full px-4 py-2 mt-2 text-sm text-black gap-y-1 gap-x-2">
-            {data.tags.split(",").map((tag, index) => (
+            {data?.tags?.split(",").map((tag, index) => (
               <button
                 key={index}
                 className="inline-block rounded-md px-1.5 py-0.5 font-medium transition-colors
