@@ -8,7 +8,6 @@ export default function BlogCard({ data, onClick }) {
       onClick={onClick}
       className="w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
     >
-      {/* {data.map((item, index) => ( */}
       <Link
         href={`/blog/${data.slug}`}
         className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
@@ -48,7 +47,6 @@ export default function BlogCard({ data, onClick }) {
           </div>
         </div>
       </Link>
-      {/* ))} */}
     </li>
   );
 }

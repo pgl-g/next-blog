@@ -49,6 +49,5 @@ export async function getStaticProps() {
       new Date(b.lastUpdated ?? b.publishedAt).valueOf() -
       new Date(a.lastUpdated ?? a.publishedAt).valueOf()
   );
-
   return { props: { data: filesSort } };
 }
