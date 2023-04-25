@@ -1,7 +1,8 @@
 import {
   SiNextdotjs,
-  SiShopify
+  SiShopify,
 } from 'react-icons/si';
+import { FiCpu } from 'react-icons/fi'
 export const projectsConfig = [
   {
     category: "Next Ecosystem",
@@ -26,5 +27,16 @@ export const projectsConfig = [
         icon: <SiShopify />,
       },
     ],
+  },
+  {
+    category: 'Mini System',
+    child: [
+      {
+        title: 'mini-webpack',
+        description: "Webpack is a small packaging tool",
+        link: "https://github.com/pgl-g/mini-webpack",
+        icon: <FiCpu />
+      }
+    ]
   }
 ];
