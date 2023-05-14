@@ -1,8 +1,12 @@
 import {
   SiNextdotjs,
   SiShopify,
+  SiKashflow,
+  SiCapacitor
 } from 'react-icons/si';
 import { FiCpu } from 'react-icons/fi'
+import { BiWrench } from "react-icons/bi";
+
 export const projectsConfig = [
   {
     category: "Next Ecosystem",
@@ -36,6 +40,23 @@ export const projectsConfig = [
         description: "Webpack is a small packaging tool",
         link: "https://github.com/pgl-g/mini-webpack",
         icon: <FiCpu />
+      }
+    ]
+  },
+  {
+    category: 'Utils',
+    child: [
+      {
+        title: 'json-to-ts',
+        description: "json data to typescript",
+        link: "https://github.com/pgl-g/json-to-ts",
+        icon: <SiKashflow />
+      },
+      {
+        title: 'wills-pub',
+        description: "前端工作流集成解决方案",
+        link: "https://github.com/pgl-g/wills-pub",
+        icon: <SiCapacitor />
       }
     ]
   }
