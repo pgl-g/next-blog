@@ -48,5 +48,6 @@ export default function BlogCard({ data, onClick }) {
         </div>
       </Link>
     </li>
+    
   );
 }

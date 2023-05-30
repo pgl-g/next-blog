@@ -1,12 +1,11 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+// import { Inter } from "@next/font/google";
 import Layout from "@/components/layout/Layout";
 import Seo from "@/components/Seo";
 import BlogCard from "@/components/blog/BlogCard";
+import TypeItText from "@/components/animationText/typeit";
 import { getAllFilesFrontmatter } from "@/lib/mdx";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data }) {
   const getYear = (a) => new Date(a).getFullYear();
@@ -33,6 +32,7 @@ export default function Home({ data }) {
                   <BlogCard data={item} key={item.slug} />
                 </div>
               ))}
+              <TypeItText child={"🤔 头好痒啊！要长脑袋了.."} />
             </ul>
           </div>
         </section>
