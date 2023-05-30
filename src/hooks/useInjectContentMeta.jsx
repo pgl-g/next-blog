@@ -9,7 +9,7 @@ const cleanBlogPrefix = (slug) => {
   }
 };
 
-export default function useInjectContentMeta(type, frontmatter) {
+export default function useInjectContentMeta(type, formatter) {
   const { data, error } = useSWR(
     process.env.NODE_ENV === 'production' ? "/api/constants" : null
   );
@@ -21,12 +21,12 @@ export default function useInjectContentMeta(type, frontmatter) {
 
   const [populatedContent, setPopulatedContent] =
     useState(
-      () => [...frontmatter]
+      () => [...formatter]
     );
 
   useEffect(() => {
     if (meta) {
-      const mapped = frontmatter.map((fm) => {
+      const mapped = formatter.map((fm) => {
         const views = meta.find(
           (meta) => meta.slug === cleanBlogPrefix(fm.slug)
         )?.views;
@@ -38,7 +38,7 @@ export default function useInjectContentMeta(type, frontmatter) {
 
       setPopulatedContent(mapped);
     }
-  }, [meta, isLoading, frontmatter]);
+  }, [meta, isLoading, formatter]);
 
   return populatedContent;
 }

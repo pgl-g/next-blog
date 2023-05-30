@@ -43,7 +43,7 @@ export default function CustomCode(props) {
       )}
       {language && (
         <CopyToClipboard
-          text={textRef?.current?.textContent ?? ""}
+          text={textRef.current?.textContent ?? ""}
           onCopy={() => {
             setIsCopied(true);
             setTimeout(() => setIsCopied(false), 1500);

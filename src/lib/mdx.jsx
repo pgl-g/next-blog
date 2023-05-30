@@ -13,7 +13,7 @@ export async function getFiles(type) {
 }
 
 export async function getFileById(type, slug) {
-  // console.log(type, slug)
+
 
   const mdxSource = slug
     ? readFileSync(
