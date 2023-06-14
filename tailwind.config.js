@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
-  // mode: 'jit',
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
@@ -52,9 +51,6 @@ module.exports = {
         shimmer: "shimmer 1.3s linear infinite",
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };

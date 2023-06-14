@@ -8,10 +8,8 @@ export default function Layout({ children }) {
     <>
       <Header />
       <div className="z-10 mt-24 layout">
-        <div className="mx-8">
-          {children}
-          <Footer />
-        </div>
+        <div className="h-full">{children}</div>
+        <Footer />
       </div>
       <Plum />
     </>
