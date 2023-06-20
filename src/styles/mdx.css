@@ -4,7 +4,7 @@
 
 .prose p,
 li {
-  color: rgb(156 163 175);
+  @apply dark:text-gray-400;
   margin-bottom: 1rem;
   line-height: 2;
 }
@@ -85,7 +85,7 @@ li {
 }
 
 .mdx.prose :where(h1, h2, h3, h4) {
-  color: #fff;
+  color: #1f2d3d;
   scroll-margin-top: 100px;
   position: relative;
   display: block;
@@ -101,6 +101,7 @@ li {
 
 .mdx.prose :where(h1, h2, h3, h4):hover {
   color: #c95cad;
+  cursor: pointer;
 }
 
 /* Custom Heading Style for Projects */

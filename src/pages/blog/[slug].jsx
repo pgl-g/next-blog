@@ -7,7 +7,7 @@ import format from "@/lib/format";
 import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 import TableContents from "@/components/TableContents";
 import MDXComponents from "@/components/MDXComponents";
-import CustomLink from '@/components/links/CustomLink'
+import CustomLink from "@/components/links/CustomLink";
 import useScrollSpy from "@/hooks/useScrollspy";
 import Link from "next/link";
 
@@ -18,7 +18,6 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
     toc?.reduce((min, item) => (item.level < min ? item.level : min), 10) ?? 0;
   const activeSection = useScrollSpy();
 
-  
   useEffect(() => {
     const headings = document.querySelectorAll(".mdx h1, .mdx h2, .mdx h3");
     const headingArr = [];
@@ -26,7 +25,6 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
       const id = heading.id;
       const level = +heading.tagName.replace("H", "");
       const text = heading.textContent + "";
-
       headingArr.push({ id, level, text });
     });
 
@@ -41,12 +39,10 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
       <main>
         <section>
           <div className="pt-8 layout">
-            <section className="grid grid-cols-[auto,334px] gap-8  mid:grid-cols-none">
-              <article className="mdx prose mx-auto mt-4 w-full rounded-[8px] border border-white bg-black px-8 py-6 shadow transition-colors mb:px-4 mb:pt-0">
-                <span className="mt-0 block  border-b-[1px] border-solid border-b-[#eee] pb-[0.2em] text-3xl font-normal leading-normal text-[#fff] 	">
-                  {frontmatter.title}
-                </span>
-                <p className="mt-2 text-sm text-gray-300">
+            <section className="grid grid-cols-[auto,334px] gap-8">
+              <article className="mdx prose mx-auto mt-4 w-full ">
+                <h1 className="">{frontmatter.title}</h1>
+                <p className="mt-2 text-sm text-gray-700">
                   {format(frontmatter.publishedAt, "LL")}
                 </p>
                 <Component
@@ -56,8 +52,8 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 />
               </article>
 
-              <aside className="py-4 mid:hidden">
-                <div className="sticky top-[84px] rounded-[8px] px-4 py-5 shadow">
+              <aside className="py-4 ">
+                <div className="sticky top-[36px]">
                   <TableContents
                     toc={toc}
                     minLevel={minLevel}
@@ -66,8 +62,8 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
                 </div>
               </aside>
             </section>
-            <div className='flex gap-4 mt-8 text-white'>
-              <CustomLink href='/'>← Back to blog</CustomLink>
+            <div className="flex gap-4 mt-8 text-white">
+              <CustomLink href="/">← Back to blog</CustomLink>
             </div>
           </div>
         </section>

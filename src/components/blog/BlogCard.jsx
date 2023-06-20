@@ -6,15 +6,18 @@ export default function BlogCard({ data, onClick }) {
   return (
     <li
       onClick={onClick}
-      className="w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
+      className="
+      w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 
+      hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow
+      "
     >
       <Link
         href={`/blog/${data.slug}`}
         className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
       >
         <div className="flex items-end p-4 mb:flex-col">
-          <div className="w-full text-white">
-            <h4>{data.title}</h4>
+          <div className="w-full">
+            <h4 className="text-gray-800">{data.title}</h4>
             <p className="mt-4 mb-2 text-sm text-gray-600">
               <span className="font-bold">
                 {format(data.publishedAt, "LL")}
@@ -38,7 +41,7 @@ export default function BlogCard({ data, onClick }) {
               <button
                 key={index}
                 className="inline-block rounded-md px-1.5 py-0.5 font-medium transition-colors
-                  bg-gray-300 text-gray-700 hover:text-black disabled:bg-gray-200 disabled:text-gray-300
+                  bg-gray-100 text-gray-700 hover:text-black disabled:bg-gray-200 disabled:text-gray-300
                   focus:outline-none focus-visible:ring focus-visible:ring-primary-300 disabled:cursor-not-allowed"
               >
                 {tag}
@@ -48,6 +51,5 @@ export default function BlogCard({ data, onClick }) {
         </div>
       </Link>
     </li>
-    
   );
 }

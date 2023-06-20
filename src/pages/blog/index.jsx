@@ -15,7 +15,7 @@ const Blogs = ({ data }) => {
       <main>
         <section>
           <div className="layout">
-            <ul className="grid gap-4 mx-8 mt-12 mb:mx-0" data-fade="1">
+            <ul className="grid gap-4 mx-4 mt-12" data-fade="1">
               {data.map((item, index) => (
                 <div key={item.slug}>
                   {!isSameYear(
@@ -33,7 +33,7 @@ const Blogs = ({ data }) => {
               <TypeIt
                 options={{ breakLines: true, loop: true, loopDelay: 3000 }}
               >
-                <strong className="py-4 leading-tight text-white font-light font-mono">
+                <strong className="py-4 leading-tight text-black font-light font-mono">
                   🤔 头好痒啊！要长脑袋了..
                 </strong>
               </TypeIt>

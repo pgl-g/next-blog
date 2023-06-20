@@ -7,11 +7,11 @@ export default function Layout({ children }) {
   return (
     <>
       <Header />
-      <div className="z-10 mt-24 layout">
-        <div className="h-full">{children}</div>
+      <div className="layout">
+        <div className="mx-4">{children}</div>
         <Footer />
       </div>
-      <Plum />
+      {/* <Plum /> */}
     </>
   );
 }

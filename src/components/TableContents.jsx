@@ -40,9 +40,9 @@ export default function TableContents({ toc, activeSection, minLevel }) {
   return (
     <div
       id="toc-container"
-      className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4 text-white"
+      className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
     >
-      <h3 className="text-xl">目录</h3>
+      <h3 className="text-gray-900">目录</h3>
       <div className="flex flex-col mt-4 space-y-2 text-sm">
         {toc
           ? toc.map(({ id, level, text }) => (
@@ -51,9 +51,9 @@ export default function TableContents({ toc, activeSection, minLevel }) {
                 href={`#${id}`}
                 id={`link-${id}`}
                 className={`
-                 font-medium hover:text-gray-200 focus:outline-none
-                focus-visible:text-gray-200 ${
-                  activeSection === id ? "text-gray-100" : "text-gray-500"
+                 font-medium hover:text-gray-700 focus:outline-none
+                focus-visible:text-gray-700 ${
+                  activeSection === id ? "text-gray-900" : "text-gray-400"
                 }`}
                 style={{ marginLeft: (level - minLevel) * 8 }}
               >
