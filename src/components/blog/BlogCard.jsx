@@ -7,7 +7,7 @@ export default function BlogCard({ data, onClick }) {
     <li
       onClick={onClick}
       className="
-      w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 
+      w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 dark:border-gray-600 dark:bg-dark'
       hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow
       "
     >
@@ -17,14 +17,16 @@ export default function BlogCard({ data, onClick }) {
       >
         <div className="flex items-end p-4 mb:flex-col">
           <div className="w-full">
-            <h4 className="text-gray-800">{data.title}</h4>
-            <p className="mt-4 mb-2 text-sm text-gray-600">
-              <span className="font-bold">
+            <h4 className="text-gray-800 dark:text-gray-100">{data.title}</h4>
+            <p className="mt-4 mb-2 text-sm text-gray-600 dark:text-gray-300">
+              <span className="font-bold text-gray-800 dark:text-gray-100">
                 {format(data.publishedAt, "LL")}
               </span>
             </p>
-            <p className="text-sm">{data.description}</p>
-            <div className="flex items-center justify-start gap-2 mt-2 text-sm font-medium">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
+              {data.description}
+            </p>
+            <div className="flex items-center justify-start gap-2 mt-2 text-sm font-medium text-gray-600 dark:text-gray-300">
               <div className="flex items-center gap-1">
                 <HiOutlineClock className="inline-block text-base" />
                 {data.readingTime.text}
@@ -36,7 +38,7 @@ export default function BlogCard({ data, onClick }) {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-end w-full px-4 py-2 mt-2 text-sm text-black gap-y-1 gap-x-2">
+          <div className="flex flex-wrap justify-end w-full px-4 py-2 mt-2 text-sm text-black gap-y-1 gap-x-2 dark:text-gray-100">
             {data?.tags?.split(",").map((tag, index) => (
               <button
                 key={index}

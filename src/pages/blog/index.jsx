@@ -33,7 +33,7 @@ const Blogs = ({ data }) => {
               <TypeIt
                 options={{ breakLines: true, loop: true, loopDelay: 3000 }}
               >
-                <strong className="py-4 leading-tight text-black font-light font-mono">
+                <strong className="py-4 leading-tight text-black font-light font-mono dark:text-[#bbb]">
                   🤔 头好痒啊！要长脑袋了..
                 </strong>
               </TypeIt>

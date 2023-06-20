@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <Seo />
-      <div className="max-w-[600px] text-black mx-8 mt-12 mb:mx-0">
+      <div className="max-w-[600px] text-black mx-8 mt-12 mb:mx-0 dark:text-[#bbb]">
         <TypeIt
           className="flex items-end  flex-col"
           options={{ breakLines: true, html: true }}

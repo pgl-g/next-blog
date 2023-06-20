@@ -1,5 +1,5 @@
 .prose {
-  max-width: unset;
+  @apply lg:max-w-[50rem] xl:max-w-[65rem];
 }
 
 .prose p,
@@ -12,16 +12,6 @@ li {
 .shadow {
   box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);
 }
-
-.prose pre {
-  background-color: #282A36;
-  border-radius: 0.5em;
-    padding: 1em;
-    margin: 0.5em 0;
-    overflow: auto;
-    height: auto;
-}
-
 
 .prose code:not(:where([data-code-type='code-block'])) {
   font-size: 85%;
@@ -37,14 +27,17 @@ li {
   text-decoration: none;
 }
 
-.prose>ol>li> :last-child,
-.prose>ul>li> :last-child {
+.prose > ol > li > :last-child,
+.prose > ul > li > :last-child {
   margin-bottom: 0;
 }
-
-.prose>ol>li> :first-child,
-.prose>ul>li> :first-child {
+.prose > ol > li > :first-child,
+.prose > ul > li > :first-child {
   margin-top: 0;
+}
+
+.prose > ul {
+  padding-left: 4px;
 }
 
 .prose blockquote p:first-of-type::before,
@@ -63,9 +56,10 @@ li {
 }
 
 .prose blockquote p {
-  color: #9CA3AF;
+  color: #777;
   padding: 0.5rem 0;
   line-height: 2;
+  @apply dark:text-gray-500;
 }
 
 .prose hr {
@@ -74,10 +68,31 @@ li {
   border-image: linear-gradient(to right, #00ff9480, #00e0f380, #00c4fd80) 1;
 }
 
+.mdx.prose {
+  @apply dark:text-neutral-400;
+}
+
+.mdx.prose table {
+  width: 100%;
+}
+.mdx.prose table tr,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+.mdx.prose table tr th,
+td {
+  padding: 8px 16px;
+}
+
+.mdx.prose table tbody tr:nth-child(2n) {
+  background-color: #f7f9fc;
+  @apply dark:bg-neutral-600/75;
+}
 
 .mdx.prose h2 {
   font-size: 20px;
-  cursor: pointer;
 }
 
 .mdx.prose h3 {
@@ -93,26 +108,47 @@ li {
   margin-right: 0.5rem;
   margin-bottom: 1rem;
   margin-top: 1.5rem;
+  @apply dark:text-[#fff] dark:opacity-90;
 }
 
-.mdx.prose :where(h1, h2, h3, h4)>a {
+.mdx.prose :where(h1, h2, h3, h4) > a {
   border-bottom: none;
 }
 
 .mdx.prose :where(h1, h2, h3, h4):hover {
-  color: #c95cad;
-  cursor: pointer;
+  color: #3385ff;
 }
 
 /* Custom Heading Style for Projects */
 .mdx.prose.projects blockquote {
   font-style: normal;
 }
-
 .mdx.prose.projects blockquote:first-of-type h2 {
   margin-top: 1rem;
 }
-
 .mdx.prose.projects blockquote.with-icons h2 {
   margin-bottom: 0;
+}
+
+/* Apply shadow to Youtube Embed */
+.mdx.prose .yt-lite {
+  @apply overflow-hidden rounded shadow-sm dark:shadow-none;
+}
+
+/** HASH ANCHOR */
+.hash-anchor {
+  @apply inset-y-0 w-full;
+  position: absolute;
+  background-image: none;
+  transition: none;
+}
+
+.hash-anchor:hover:after,
+.hash-anchor:focus:after {
+  visibility: visible;
+}
+
+.hash-anchor:after {
+  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
+  content: '#';
 }

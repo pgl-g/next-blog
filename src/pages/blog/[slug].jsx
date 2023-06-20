@@ -40,9 +40,9 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
         <section>
           <div className="pt-8 layout">
             <section className="grid grid-cols-[auto,334px] gap-8">
-              <article className="mdx prose mx-auto mt-4 w-full ">
-                <h1 className="">{frontmatter.title}</h1>
-                <p className="mt-2 text-sm text-gray-700">
+              <article className="mdx prose mx-auto mt-4 w-full dark:prose-invert">
+                <h1 className="dark:text-gray-300">{frontmatter.title}</h1>
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
                   {format(frontmatter.publishedAt, "LL")}
                 </p>
                 <Component

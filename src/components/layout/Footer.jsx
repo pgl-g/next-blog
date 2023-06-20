@@ -3,12 +3,12 @@
 export default function Footer() {
   return (
     <footer className="my-16 text-right text-[#b3b3b3] ">
-      <section className="flex flex-col items-end">
+      <section className="flex flex-col items-end dark:text-gray-300">
         <div>
           <a
             href="https://github.com/pgl-g"
             target="_blank"
-            className="pl-1"
+            className="pl-1 "
             rel="noreferrer"
           >
             © PGL-G
