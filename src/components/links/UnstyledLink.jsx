@@ -1,13 +1,12 @@
-import Link from 'next/link';
-import React, { forwardRef } from 'react';
-
+import Link from "next/link";
+import React, { forwardRef } from "react";
 
 const UnstyledLink = forwardRef(
   ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
     const isNewTab =
       openNewTab !== undefined
         ? openNewTab
-        : href && !href.startsWith('/') && !href.startsWith('#');
+        : href && !href.startsWith("/") && !href.startsWith("#");
     if (!isNewTab) {
       return (
         <Link
@@ -25,8 +24,8 @@ const UnstyledLink = forwardRef(
     return (
       <a
         ref={ref}
-        target='_blank'
-        rel='noopener noreferrer'
+        target="_blank"
+        rel="noopener noreferrer"
         href={href}
         {...rest}
         className={className}

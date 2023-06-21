@@ -1,8 +1,10 @@
 import React from "react";
-import { useTheme } from "next-themes";
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { useMemo } from "react";
+import { useWindowScroll } from "react-use";
+import Icon from "./Icon";
+
+import clsx from "clsx";
 
 const navVal = [
   {
@@ -20,13 +22,24 @@ const navVal = [
 ];
 
 export default function Header() {
-  const { theme, setTheme } = useTheme();
+  const docScroll = useWindowScroll();
+
+  const isDocHover = useMemo(() => {
+    if (docScroll) return !!docScroll.y;
+  }, [docScroll]);
 
   return (
-    <header className="stick top-0 z-50 w-full bg-transparent 'dark:border-b  dark:border-black',">
+    <header
+      className={clsx(
+        "stick top-0 z-50 w-full bg-transparent transition",
+        "dark:border-b  dark:border-black",
+        isDocHover &&
+          "solid border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md dark:bg-neutral-800"
+      )}
+    >
       <section className="layout">
-        <div className="mx-4 lg:mx-8 flex items-center justify-between gap-[24px]">
-          <nav className="w=full flex justify-between py-4">
+        <div className="mx-4 flex items-center justify-between gap-[24px]">
+          <div className="w=full flex justify-between py-4">
             <ul className="flex justify-between space-x-4">
               {navVal.map((item) => {
                 return (
@@ -40,24 +53,8 @@ export default function Header() {
                 );
               })}
             </ul>
-          </nav>
-
-          <div className="flex items-center space-x-3 text-base">
-            <a
-              href="https://github.com/pgl-g"
-              rel="noreferrer"
-              target="_blank"
-              className="cursor-pointer"
-            >
-              <BsGithub />
-            </a>
-            {/* 一键换肤 */}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "light" ? <FiMoon /> : <FiSun />}
-            </button>
           </div>
+          <Icon />
         </div>
       </section>
     </header>
