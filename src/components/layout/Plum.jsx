@@ -2,25 +2,22 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import options from "@/mock/tsparticlesConfig";
+import clsx from "clsx";
+import style from "./style.module.css";
 
 export default function Plum() {
   const particlesInit = useCallback(async (engine) => {
-    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(engine);
   }, []);
 
-  // const particlesLoaded = useCallback(async (container) => {
-  //   await console.log(container);
-  // }, []);
-
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      // loaded={particlesLoaded}
-      options={options}
-    />
+    <div
+      className={clsx(
+        "pointer-events-none fixed top-0 bottom-0 left-0 right-0 z-[-1]",
+        style.mask_image
+      )}
+    >
+      <Particles id="tsparticles" init={particlesInit} options={options} />
+    </div>
   );
 }

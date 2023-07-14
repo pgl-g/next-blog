@@ -23,11 +23,11 @@ const navVal = [
 
 export default function Header() {
   const isDocHover = useScroll();
-
+  console.log(isDocHover, "isDocHover");
   return (
     <header
       className={clsx(
-        "stick top-0 z-50 w-full bg-transparent transition",
+        "fixed top-0 z-50 w-full bg-transparent transition",
         "dark:border-b  dark:border-black",
         isDocHover &&
           "solid border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md dark:bg-neutral-800"
