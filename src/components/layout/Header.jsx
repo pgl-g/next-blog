@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { useMemo } from "react";
-import { useWindowScroll } from "react-use";
 import Icon from "./Icon";
+
+import { useScroll } from "@/hooks";
 
 import clsx from "clsx";
 
@@ -22,11 +22,7 @@ const navVal = [
 ];
 
 export default function Header() {
-  const docScroll = useWindowScroll();
-
-  const isDocHover = useMemo(() => {
-    if (docScroll) return !!docScroll.y;
-  }, [docScroll]);
+  const isDocHover = useScroll();
 
   return (
     <header

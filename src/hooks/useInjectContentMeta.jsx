@@ -2,27 +2,23 @@ import React, { useMemo, useState, useEffect } from "react";
 import useSWR from "swr";
 
 const cleanBlogPrefix = (slug) => {
-  if (slug.slice(0, 3) === 'id-') {
+  if (slug.slice(0, 3) === "id-") {
     return slug.slice(3);
   } else {
     return slug;
   }
 };
 
-export default function useInjectContentMeta(type, formatter) {
+export function useInjectContentMeta(type, formatter) {
   const { data, error } = useSWR(
-    process.env.NODE_ENV === 'production' ? "/api/constants" : null
+    process.env.NODE_ENV === "production" ? "/api/constants" : null
   );
   const isLoading = !error;
-  const meta = useMemo(
-    () => type,
-    [type]
-  );
+  const meta = useMemo(() => type, [type]);
 
-  const [populatedContent, setPopulatedContent] =
-    useState(
-      () => [...formatter]
-    );
+  const [populatedContent, setPopulatedContent] = useState(() => [
+    ...formatter,
+  ]);
 
   useEffect(() => {
     if (meta) {

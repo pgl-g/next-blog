@@ -4,12 +4,10 @@ import Seo from "@/components/Seo";
 import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
 import format from "@/lib/format";
-import useInjectContentMeta from "@/hooks/useInjectContentMeta";
 import TableContents from "@/components/TableContents";
 import MDXComponents from "@/components/MDXComponents";
 import CustomLink from "@/components/links/CustomLink";
-import useScrollSpy from "@/hooks/useScrollspy";
-import Link from "next/link";
+import { useScrollSpy } from "@/hooks";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
