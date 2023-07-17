@@ -11,7 +11,7 @@ export default function Layout({ children }) {
         <div className="mx-4">{children}</div>
         <Footer />
       </div>
-      {/* <Plum /> */}
+      <Plum />
     </>
   );
 }
