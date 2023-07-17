@@ -1,16 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "./Icon";
-
 import { useScroll } from "@/hooks";
+import { DiLaravel } from "react-icons/di";
+import UnstyledLink from "@/components/links/UnstyledLink";
 
 import clsx from "clsx";
 
 const navVal = [
-  {
-    name: "Home",
-    link: "/",
-  },
   {
     name: "Blog",
     link: "/blog",
@@ -33,24 +30,29 @@ export default function Header() {
       )}
     >
       <section>
-        <div className="mx-4 flex items-center justify-between gap-[24px]">
-          <div className="w=full flex justify-between py-4">
-            <ul className="flex justify-between space-x-4">
-              {navVal.map((item) => {
-                return (
-                  <span key={item.name}>
-                    <Link href={item.link}>
-                      <span className="text-black hover:text-gray-400 dark:text-white">
-                        {item.name}
-                      </span>
-                    </Link>
-                  </span>
-                );
-              })}
-            </ul>
-          </div>
-          <Icon />
-        </div>
+        <nav className="mx-8 w=full flex justify-between py-4 gap-[24px]">
+          <UnstyledLink
+            href="/"
+            className="text-4xl text-stone-500 dark:text-white"
+          >
+            <DiLaravel />
+          </UnstyledLink>
+
+          <ul className="flex items-center space-x-4">
+            {navVal.map((item) => {
+              return (
+                <span key={item.name}>
+                  <Link href={item.link}>
+                    <span className="text-slate-400 hover:text-gray-400 dark:text-white">
+                      {item.name}
+                    </span>
+                  </Link>
+                </span>
+              );
+            })}
+            <Icon className="text-stone-500 dark:text-white" />
+          </ul>
+        </nav>
       </section>
     </header>
   );

@@ -3,13 +3,14 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { useTheme } from "next-themes";
 import UnstyledLink from "@/components/links/UnstyledLink";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 const THEM_BUTTON = {
   light: <FiMoon />,
   dark: <FiSun />,
 };
 
-const Icon = () => {
+const Icon = ({ className }) => {
   const { theme, setTheme } = useTheme();
   const [themeButton, setThemeButton] = useState();
 
@@ -23,11 +24,14 @@ const Icon = () => {
         href="https://github.com/pgl-g"
         rel="noreferrer"
         target="_blank"
-        className="cursor-pointer"
+        className={clsx("cursor-pointer", className)}
       >
         <BsGithub />
       </UnstyledLink>
-      <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+      <button
+        className={className}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      >
         {themeButton}
       </button>
     </div>
