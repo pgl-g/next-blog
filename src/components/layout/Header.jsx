@@ -26,13 +26,13 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "fixed top-0 z-50 w-full bg-transparent transition",
+        "fixed top-0 z-50 w-full bg-transparent transition overflow-hidden",
         "dark:border-b  dark:border-black",
         isDocHover &&
           "solid border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md dark:bg-neutral-800"
       )}
     >
-      <section className="layout">
+      <section>
         <div className="mx-4 flex items-center justify-between gap-[24px]">
           <div className="w=full flex justify-between py-4">
             <ul className="flex justify-between space-x-4">
