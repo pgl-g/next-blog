@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import Seo from "@/components/Seo";
+import Seo from "@/components/layout/Seo";
 import BlogCard from "@/components/blog/BlogCard";
 import TypeIt from "typeit-react";
 import { getAllFilesFrontmatter } from "@/lib/mdx";

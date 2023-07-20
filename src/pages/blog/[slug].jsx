@@ -1,11 +1,11 @@
 import React, { useMemo, useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
-import Seo from "@/components/Seo";
+import Seo from "@/components/layout/Seo";
 import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
 import format from "@/lib/format";
-import TableContents from "@/components/TableContents";
-import MDXComponents from "@/components/MDXComponents";
+import TableContents from "@/components/blog/TableContents";
+import MDXComponents from "@/components/mdxComponents/MDXComponents";
 import CustomLink from "@/components/links/CustomLink";
 import { useScrollSpy } from "@/hooks";
 

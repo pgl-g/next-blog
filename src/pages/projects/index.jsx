@@ -1,6 +1,6 @@
 import * as React from "react";
 import Layout from "@/components/layout/Layout";
-import Seo from "@/components/Seo";
+import Seo from "@/components/layout/Seo";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { projectsConfig } from "@/mock/projects";
 

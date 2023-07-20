@@ -1,5 +1,5 @@
 import Layout from "@/components/layout/Layout";
-import Seo from "@/components/Seo";
+import Seo from "@/components/layout/Seo";
 import TypeIt from "typeit-react";
 import Link from "next/link";
 

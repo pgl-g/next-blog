@@ -3,7 +3,7 @@ import { BsFillXCircleFill } from "react-icons/bs";
 
 import Layout from "@/components/layout/Layout";
 import CustomLink from "@/components/links/CustomLink";
-import Seo from "@/components/Seo";
+import Seo from "@/components/layout/Seo";
 
 export default function NotFoundPage() {
   return (
