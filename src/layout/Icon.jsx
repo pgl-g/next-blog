@@ -1,7 +1,7 @@
 import { BsGithub } from "react-icons/bs";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { useTheme } from "next-themes";
-import UnstyledLink from "@/components/links/UnstyledLink";
+import UnstyledLink from "@/components/customCpm/UnstyledLink";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 

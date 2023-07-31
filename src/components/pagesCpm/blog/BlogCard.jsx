@@ -1,5 +1,5 @@
 import { HiOutlineClock, HiOutlineEye } from "react-icons/hi";
-import format from "@/lib/format";
+import format from "@/utils/format";
 import Link from "next/link";
 
 export default function BlogCard({ data, onClick }) {

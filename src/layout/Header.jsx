@@ -3,7 +3,7 @@ import Link from "next/link";
 import Icon from "./Icon";
 import { useScroll } from "@/hooks";
 import { DiLaravel } from "react-icons/di";
-import UnstyledLink from "@/components/links/UnstyledLink";
+import UnstyledLink from "@/components/customCpm/UnstyledLink";
 
 import clsx from "clsx";
 

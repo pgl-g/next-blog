@@ -9,22 +9,20 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 export async function getFiles(type) {
-   return readdirSync(join(process.cwd(), 'src', 'constants', type));
+  return readdirSync(join(process.cwd(), "src", "constants", type));
 }
 
 export async function getFileById(type, slug) {
-
-
   const mdxSource = slug
     ? readFileSync(
-        join(process.cwd(), 'src', 'constants', type, `${slug}.mdx`),
-        'utf8'
+        join(process.cwd(), "src", "constants", type, `${slug}.mdx`),
+        "utf8"
       )
     : readFileSync(
-        join(process.cwd(), 'src', 'constants', `${type}.mdx`),
-        'utf8'
+        join(process.cwd(), "src", "constants", `${type}.mdx`),
+        "utf8"
       );
-    
+
   const { code, frontmatter } = await bundleMDX({
     source: mdxSource,
     mdxOptions(options, _) {
@@ -37,7 +35,7 @@ export async function getFileById(type, slug) {
           rehypeAutolinkHeadings,
           {
             properties: {
-              className: ['hash-anchor'],
+              className: ["hash-anchor"],
             },
           },
         ],

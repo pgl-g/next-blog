@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import UnstyledLink from "@/components/links/UnstyledLink";
+import UnstyledLink from "@/components/customCpm/UnstyledLink";
 
 export default function TableContents({ toc, activeSection, minLevel }) {
   const lastPosition = useRef(0);

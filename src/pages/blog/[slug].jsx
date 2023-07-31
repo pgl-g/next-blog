@@ -1,12 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
-import Layout from "@/components/layout/Layout";
-import Seo from "@/components/layout/Seo";
-import { getFiles, getFileById, getRecommendations } from "@/lib/mdx";
+import Layout from "@/layout";
+import Seo from "@/layout/Seo";
+import { getFiles, getFileById, getRecommendations } from "@/utils/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
-import format from "@/lib/format";
-import TableContents from "@/components/blog/TableContents";
-import MDXComponents from "@/components/mdxComponents/MDXComponents";
-import CustomLink from "@/components/links/CustomLink";
+import format from "@/utils/format";
+import TableContents from "@/components/commonCpm/tableContents";
+import MDXComponents from "@/components/mdxCpm/MDXComponents";
+import CustomLink from "@/components/customCpm/CustomLink";
 import { useScrollSpy } from "@/hooks";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {

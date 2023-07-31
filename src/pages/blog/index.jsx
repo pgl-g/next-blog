@@ -1,8 +1,8 @@
-import Layout from "@/components/layout/Layout";
-import Seo from "@/components/layout/Seo";
-import BlogCard from "@/components/blog/BlogCard";
+import Layout from "@/layout";
+import Seo from "@/layout/Seo";
+import BlogCard from "@/components/pagesCpm/blog/BlogCard";
 import TypeIt from "typeit-react";
-import { getAllFilesFrontmatter } from "@/lib/mdx";
+import { getAllFilesFrontmatter } from "@/utils/mdx";
 
 const Blogs = ({ data }) => {
   const getYear = (a) => new Date(a).getFullYear();

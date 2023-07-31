@@ -1,7 +1,7 @@
 import * as React from "react";
-import Layout from "@/components/layout/Layout";
-import Seo from "@/components/layout/Seo";
-import ProjectCard from "@/components/projects/ProjectCard";
+import Layout from "@/layout";
+import Seo from "@/layout/Seo";
+import ProjectCard from "@/components/pagesCpm/projects/ProjectCard";
 import { projectsConfig } from "@/mock/projects";
 
 export default function Projects() {
