@@ -62,7 +62,6 @@ export const getStaticProps = async () => {
   let post, recommendations;
   for (const params of dirPost) {
     post = await getFileById("blog", params?.slug);
-
     recommendations = await getRecommendations(params?.slug);
   }
   return {
