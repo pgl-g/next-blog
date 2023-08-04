@@ -9,7 +9,7 @@ export default function Home({ recommendations }) {
       <Seo />
       <div className="max-w-[1200px] my-0 mx-auto">
         <ul className="grid gap-4 grid-cols-3">
-          {recommendations.map((item) => (
+          {recommendations.map((item, index) => (
             <li
               className="w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark scale-100 
             hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
@@ -22,7 +22,7 @@ export default function Home({ recommendations }) {
                 <div>
                   <figure className="pointer-events-none overflow-hidden rounded-t-md">
                     <div className="w-full h-[155px]">
-                      <img src={item.img} alt={item.img} />
+                      <img src={item.img} alt={`${item.img} + ${index}`} />
                     </div>
                   </figure>
                 </div>
@@ -64,7 +64,6 @@ export const getStaticProps = async () => {
     post = await getFileById("blog", params?.slug);
 
     recommendations = await getRecommendations(params?.slug);
-    console.log(recommendations, "asdaslkdjakd");
   }
   return {
     props: { ...post, recommendations },
