@@ -103,7 +103,5 @@ export async function getRecommendations(currSlug) {
             (fm) => !recommendations.some((r) => r.slug === fm.slug)
           ),
         ];
-
-  // Only return first three
-  return threeRecommendations.slice(0, 3);
+  return threeRecommendations;
 }

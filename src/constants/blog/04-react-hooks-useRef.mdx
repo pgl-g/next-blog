@@ -1,9 +1,10 @@
 ---
 title: 理解hooks原理 ---React中的useRef
 description: 理解hooks原理
-publishedAt: '2022-04-13'
-lastUpdated: '2022-04-13'
+publishedAt: "2022-04-13"
+lastUpdated: "2022-04-13"
 tags: "react-hooks"
+img: "https://n.sinaimg.cn/sinacn10117/384/w1920h864/20191211/c82c-ikrsesr6290991.jpg"
 ---
 
 ### 前言
@@ -46,118 +47,125 @@ tags: "react-hooks"
 import React, { useRef } from "react";
 const refContainer = useRef(initialValue);
 ```
+
 ### useRef 有什么作用呢?
-> 作用于Dom元素 获取子组件的实例(只有类组件可用) 在函数组件中的一个全局变量，不会因为重复 render 重复申明， 类似于类组件的
+
+> 作用于 Dom 元素 获取子组件的实例(只有类组件可用) 在函数组件中的一个全局变量，不会因为重复 render 重复申明， 类似于类组件的
 >
-> this.xxx useRef使用 作用于Dom元素
+> this.xxx useRef 使用 作用于 Dom 元素
 
 ```javascript
-const UseRefComp=()=>{ 
+const UseRefComp=()=>{
 		//创建ref
-		const inputRef=useRef() 
+		const inputRef=useRef()
 		const getValue= () => {
 		//访问ref
 			console.log(inputRef.current.value) }
-		//挂载 
+		//挂载
 		return (
 		<div>
 		<input ref={inputRef} type="text"> <button onClick={getValue}>获取input的
 		值</button> </div>
 ) }
 ```
+
 获取子组件的实例(只有类组件可用)
+
 ```javascript
 // 使用 ref 子组件必须是类组件
 class Children extends PureComponent {
-  render () {
-    const { count } = this.props
-    return (
-      <div>{ count }</div>
-    )
+  render() {
+    const { count } = this.props;
+    return <div>{count}</div>;
   }
 }
 
-function App () {
-  const [ count, setCount ] = useState(0)
-  const childrenRef = useRef(null)
-  // const 
+function App() {
+  const [count, setCount] = useState(0);
+  const childrenRef = useRef(null);
+  // const
   const onClick = useMemo(() => {
     return () => {
-      console.log('button click')
-      console.log(childrenRef.current)
-      setCount((count) => count + 1)
-    }
-  }, [])
+      console.log("button click");
+      console.log(childrenRef.current);
+      setCount((count) => count + 1);
+    };
+  }, []);
   return (
     <div>
-      点击次数: { count }
-      <Children ref={childrenRef}  count={count}></Children>
+      点击次数: {count}
+      <Children ref={childrenRef} count={count}></Children>
       <button onClick={onClick}>点我</button>
     </div>
-    )
+  );
 }
 ```
+
 在函数组件中的一个全局变量，不会因为重复 render 重复申明， 类似于类组件的 this.xxx
 
 简单例子：
+
 ```javascript
-function Test(){
+function Test() {
+  const t = useRef(null);
 
-const t=useRef(null);
+  const handleClick = () => {
+    t.current = setTimeout(() => {
+      console.log("timer");
+    }, 1000);
+  };
+  const handleClear = () => clearTimeout(t.current);
 
-const handleClick = ()=>{
-	t.current=setTimeout(()=>{
-		console.log('timer')
-	},1000)
+  return (
+    <>
+      <button onClick={handleClick}>start</button>
+      <button onClick={handleClear}>clear</button>
+    </>
+  );
 }
-const handleClear = () => clearTimeout(t.current)
-
-return (
-	<>
-		<button onClick={handleClick}>start</button>
-		<button onClick={handleClear}>clear</button>
-	</>
-)}
 ```
+
 有些情况下，我们需要保证函数组件每次 render 之后，某些变量不会被重复申明，比如说 Dom 节点，定时器的 id 等等，在类组件中，
-我们完全可以通过给类添加一个自定义属性来保留，比如说 this.xxx， 
-但是函数组件没有 this，自然无法通过这种方法使用，有的朋友说，我可以用useState 来保留变量的值，
+我们完全可以通过给类添加一个自定义属性来保留，比如说 this.xxx，
+但是函数组件没有 this，自然无法通过这种方法使用，有的朋友说，我可以用 useState 来保留变量的值，
 但是 useState 会触发组件 render，在这里完全是不需要的，我们就需要使用 useRef 来实现了，具体看下面例子
+
 ```javascript
-function App () {
-  const [ count, setCount ] = useState(0)
-  const timer = useRef(null)
-  let timer2 
-  
+function App() {
+  const [count, setCount] = useState(0);
+  const timer = useRef(null);
+  let timer2;
+
   useEffect(() => {
     let id = setInterval(() => {
-      setCount(count => count + 1)
-    }, 500)
+      setCount((count) => count + 1);
+    }, 500);
 
-    timer.current = id
-    timer2 = id
+    timer.current = id;
+    timer2 = id;
     return () => {
-      clearInterval(timer.current)
-    }
-  }, [])
+      clearInterval(timer.current);
+    };
+  }, []);
 
   const onClickRef = useCallback(() => {
-    clearInterval(timer.current)
-  }, [])
+    clearInterval(timer.current);
+  }, []);
 
   const onClick = useCallback(() => {
-    clearInterval(timer2)
-  }, [])
+    clearInterval(timer2);
+  }, []);
 
   return (
     <div>
-      点击次数: { count }
+      点击次数: {count}
       <button onClick={onClick}>普通</button>
       <button onClick={onClickRef}>useRef</button>
     </div>
-    )
+  );
 }
 ```
-当我们们使用普通的按钮去暂停定时器时发现定时器无法清除，因为 App 组件每次 render，都会重新申明一次 timer2, 
+
+当我们们使用普通的按钮去暂停定时器时发现定时器无法清除，因为 App 组件每次 render，都会重新申明一次 timer2,
 定时器的 id 在第二次 render 时，就丢失了，所以无法清除定时器，针对这种情况，
 就需要使用到 useRef，来为我们保留定时器 id，类似于 this.xxx，这就是 useRef 的另外一种用法。

@@ -25,7 +25,7 @@ const Plum = () => {
   const initCanvas = (canvas, width = 400, height = 400, _dpi) => {
     // eslint-disable-next-line
     const ctx = canvas.getContext("2d");
-    console.log(ctx, "ctx");
+    // console.log(ctx, "ctx");
     const dpr = window.devicePixelRatio || 1;
     const bsr =
       // @ts-expect-error vendor

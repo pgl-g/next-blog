@@ -1,17 +1,20 @@
 ---
 title: 前端面试-SPA（单页应用）首屏加载速度慢怎么解决？
 description: SPA优化
-publishedAt: '2022-06-28'
-lastUpdated: '2022-06-28'
-tags: 'SPA优化'
+publishedAt: "2022-06-28"
+lastUpdated: "2022-06-28"
+tags: "SPA优化"
+img: "https://img-baofun.zhhainiao.com/fs/84e4e7f8e95f62562aad4a89af7b63c2.jpg"
 ---
+
 ### 什么是首屏加载
 
 首屏时间（First Contentful Paint），指的是浏览器从响应用户输入网址地址，
 
 到首屏内容渲染完成的时间，此时整个网页不一定要全部渲染完成，但需要展示当前视窗需要的内容
 
-通过DOMContentLoad或者performance来计算出首屏时间
+通过 DOMContentLoad 或者 performance 来计算出首屏时间
+
 ```javascript
 // 方案一：
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -19,7 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 // 方案二：
 performance.getEntriesByName("first-contentful-paint")[0].startTime
- 
+
 // performance.getEntriesByName("first-contentful-paint")[0]
 // 会返回一个 PerformancePaintTiming的实例，结构如下：
 {
@@ -29,7 +32,9 @@ performance.getEntriesByName("first-contentful-paint")[0].startTime
   duration: 0,
 };
 ```
+
 ### 加载慢的原因
+
 在页面渲染的过程，导致加载速度慢的因素可能如下：
 
 1.网络延时问题
@@ -39,9 +44,11 @@ performance.getEntriesByName("first-contentful-paint")[0].startTime
 3.资源是否重复发送请求去加载了
 
 4.加载脚本的时候，渲染内容堵塞了
+
 ### 解决方案
 
 1.减少入口文件体积常用的手段是路由懒加载，只有在解析路由时才会加载组件
+
 ```javascript
 const routes = [
 {
@@ -50,27 +57,29 @@ const routes = [
    component: () => import('./components/BlogsName.js')
 }
 ```
+
 2.静态资源本地缓存
 
-后端返回资源： 采用HTTP缓存
+后端返回资源： 采用 HTTP 缓存
 
 前端合理利用：localStorage
 
-CDN静态资源缓存 react, react-dom, react-router-dom, axios
-3.UI框架按需加载
+CDN 静态资源缓存 react, react-dom, react-router-dom, axios
+3.UI 框架按需加载
 
-在日常使用的UI框架，例如element-UI, antd, 我们要按需引入
+在日常使用的 UI 框架，例如 element-UI, antd, 我们要按需引入
 
 ```javascript
 import { Button } from ‘antd’
 ```
+
 4.避免组件重复打包
 
-假如A.js 文件是一个常用的库，现在有多个路由使用A.js文件，这样就造成重复下载
+假如 A.js 文件是一个常用的库，现在有多个路由使用 A.js 文件，这样就造成重复下载
 
-解决方案：在webpack的config文件中，修改CommonsChunkPlugin的配置minChunks:2，
+解决方案：在 webpack 的 config 文件中，修改 CommonsChunkPlugin 的配置 minChunks:2，
 
-minChunks为2会把使用2次及以上的包抽离出来，放进公共依赖文件中避免了重复加载组件。
+minChunks 为 2 会把使用 2 次及以上的包抽离出来，放进公共依赖文件中避免了重复加载组件。
 
 5.图片资源压缩
 
@@ -78,15 +87,18 @@ minChunks为2会把使用2次及以上的包抽离出来，放进公共依赖文
 
 对于所有的图片资源，我们可以进行适当的压缩
 
-对于页面上使用的icon，可以使用在线字体图标，或者雪碧图，将众多的小图标合并到一张图中，用以减轻http请求的压力
+对于页面上使用的 icon，可以使用在线字体图标，或者雪碧图，将众多的小图标合并到一张图中，用以减轻 http 请求的压力
 
-6.开启GZip压缩
+6.开启 GZip 压缩
 
-拆完包后，我们再用gzip做一下压缩，安装compression-webpack-plugin
+拆完包后，我们再用 gzip 做一下压缩，安装 compression-webpack-plugin
+
 ```javascript
 cnmp i compression-webpack-plugin -D
 ```
-webpack中配置安装
+
+webpack 中配置安装
+
 ```javascript
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productGzipExtensions = ['js', 'css']
@@ -98,8 +110,9 @@ new CompressionWebpackPlugin({
 	minRation: 0.8
 })
 ```
-7.使用SSR
 
-SSR（Server side ），也就是服务端渲染，组件或页面通过服务器生成html字符串，再发送到浏览器
+7.使用 SSR
 
-从头搭建一个服务端渲染是很复杂的，vue应用建议使用Nuxt.js实现服务端渲染
+SSR（Server side ），也就是服务端渲染，组件或页面通过服务器生成 html 字符串，再发送到浏览器
+
+从头搭建一个服务端渲染是很复杂的，vue 应用建议使用 Nuxt.js 实现服务端渲染
