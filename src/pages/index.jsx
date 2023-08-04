@@ -15,7 +15,10 @@ export default function Home({ recommendations }) {
             hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
               key={item.slug}
             >
-              <a className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300">
+              <a
+                href={`/blog/${item.slug}`}
+                className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
+              >
                 <div>
                   <figure className="pointer-events-none overflow-hidden rounded-t-md">
                     <div className="w-full h-[155px]">
@@ -59,7 +62,9 @@ export const getStaticProps = async () => {
   let post, recommendations;
   for (const params of dirPost) {
     post = await getFileById("blog", params?.slug);
+
     recommendations = await getRecommendations(params?.slug);
+    console.log(recommendations, "asdaslkdjakd");
   }
   return {
     props: { ...post, recommendations },
