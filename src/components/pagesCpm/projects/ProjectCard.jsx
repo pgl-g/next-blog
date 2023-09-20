@@ -13,7 +13,7 @@ export default function ProjectCard({ project }) {
           className="h-full p-4 cursor-pointer hover:bg-[#88888808]"
         >
           <section className="flex items-center gap-[24px]">
-            <div className="text-[38px] opacity-50 group-hover:opacity-70 dark:group-hover:opacity-80">
+            <div className="text-[38px] dark:text-white opacity-50 group-hover:opacity-70 dark:group-hover:opacity-80">
               {projectItem.icon}
             </div>
             <div>
