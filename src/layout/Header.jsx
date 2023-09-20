@@ -26,7 +26,7 @@ export default function Header() {
         "fixed top-0 z-50 w-full bg-transparent transition overflow-hidden",
         "dark:border-b  dark:border-black",
         isDocHover &&
-          "solid border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md dark:bg-neutral-800"
+          "border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md dark:bg-neutral-800"
       )}
     >
       <section>

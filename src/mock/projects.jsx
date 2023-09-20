@@ -2,10 +2,11 @@ import {
   SiNextdotjs,
   SiShopify,
   SiKashflow,
-  SiCapacitor
-} from 'react-icons/si';
-import { FiCpu } from 'react-icons/fi'
-import { BiWrench } from "react-icons/bi";
+  SiCapacitor,
+} from "react-icons/si";
+import { FiCpu } from "react-icons/fi";
+import { BiWind } from "react-icons/bi";
+import { MdWifiTethering } from "react-icons/md";
 
 export const projectsConfig = [
   {
@@ -33,31 +34,43 @@ export const projectsConfig = [
     ],
   },
   {
-    category: 'Mini System',
+    category: "Mini System",
     child: [
       {
-        title: 'mini-webpack',
+        title: "mini-webpack",
         description: "Webpack is a small packaging tool",
         link: "https://github.com/pgl-g/mini-webpack",
-        icon: <FiCpu />
-      }
-    ]
+        icon: <FiCpu />,
+      },
+    ],
   },
   {
-    category: 'Utils',
+    category: "Utils",
     child: [
       {
-        title: 'json-to-ts',
+        title: "json-to-ts",
         description: "json data to typescript",
         link: "https://github.com/pgl-g/json-to-ts",
-        icon: <SiKashflow />
+        icon: <SiKashflow />,
       },
       {
-        title: 'wills-pub',
+        title: "pgl-wills",
         description: "前端工作流集成解决方案",
         link: "https://github.com/pgl-g/wills-pub",
-        icon: <SiCapacitor />
-      }
-    ]
-  }
+        icon: <SiCapacitor />,
+      },
+      {
+        title: "pgl-cli",
+        description: "脚手架",
+        link: "https://github.com/pgl-g/cli",
+        icon: <BiWind />,
+      },
+      {
+        title: "pgl-request",
+        description: "工程化网关配置",
+        link: "https://github.com/pgl-g/pglRequest",
+        icon: <MdWifiTethering />,
+      },
+    ],
+  },
 ];

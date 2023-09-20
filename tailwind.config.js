@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require("tailwindcss/defaultTheme");
 module.exports = {
+  variants: {
+    textColor: ["responsive", "hover", "focus", "group-hover"],
+  },
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
+  experimental: {
+    darkModeVariant: true,
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -11,7 +17,6 @@ module.exports = {
       colors: {
         secondary: "#86909C",
         primary: {
-          // Customize it on globals.css :root
           50: "rgb(var(--tw-color-primary-50) / <alpha-value>)",
           100: "rgb(var(--tw-color-primary-100) / <alpha-value>)",
           200: "rgb(var(--tw-color-primary-200) / <alpha-value>)",
@@ -37,18 +42,9 @@ module.exports = {
             filter: "none",
           },
         },
-        shimmer: {
-          "0%": {
-            backgroundPosition: "-700px 0",
-          },
-          "100%": {
-            backgroundPosition: "700px 0",
-          },
-        },
       },
       animation: {
         flicker: "flicker 3s linear infinite",
-        shimmer: "shimmer 1.3s linear infinite",
       },
     },
   },
