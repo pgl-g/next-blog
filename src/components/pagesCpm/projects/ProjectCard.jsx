@@ -3,7 +3,7 @@ import UnstyledLink from "@/components/customCpm/UnstyledLink";
 
 export default function ProjectCard({ project }) {
   return (
-    <ul className="grid grid-cols-2 gap-4 mt-6 mb:grid-cols-none">
+    <ul className="grid grid-cols-3 gap-4 mt-6 mb:grid-cols-none">
       {project.child.map((projectItem) => (
         <UnstyledLink
           key={projectItem.title}
