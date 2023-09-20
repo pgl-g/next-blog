@@ -42,6 +42,12 @@ export const projectsConfig = [
         link: "https://github.com/pgl-g/mini-webpack",
         icon: <FiCpu />,
       },
+      {
+        title: "pgl-cli",
+        description: "脚手架",
+        link: "https://github.com/pgl-g/cli",
+        icon: <BiWind />,
+      },
     ],
   },
   {
@@ -58,12 +64,6 @@ export const projectsConfig = [
         description: "前端工作流集成解决方案",
         link: "https://github.com/pgl-g/wills-pub",
         icon: <SiCapacitor />,
-      },
-      {
-        title: "pgl-cli",
-        description: "脚手架",
-        link: "https://github.com/pgl-g/cli",
-        icon: <BiWind />,
       },
       {
         title: "pgl-request",
