@@ -3,7 +3,6 @@ import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
 import Plum from "@/layout/Plum";
 
-// 2. 测试提交2
 export default function Layout({ children }) {
   return (
     <>
