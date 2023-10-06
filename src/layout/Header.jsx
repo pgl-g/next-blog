@@ -20,7 +20,6 @@ const navVal = [
 
 export default function Header() {
   const isDocHover = useScroll();
-  console.log(isDocHover, "isDocHover");
   return (
     <header
       className={clsx(
