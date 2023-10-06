@@ -44,13 +44,13 @@ export default function TableContents({ toc, activeSection, minLevel }) {
     >
       <h3 className="text-gray-900">目录</h3>
       <div className="flex flex-col mt-4 space-y-2 text-sm">
-        {toc
-          ? toc.map(({ id, level, text }) => (
-              <UnstyledLink
-                key={id}
-                href={`#${id}`}
-                id={`link-${id}`}
-                className={`
+        {toc &&
+          toc.map(({ id, level, text }) => (
+            <UnstyledLink
+              key={id}
+              href={`#${id}`}
+              id={`link-${id}`}
+              className={`
                  font-medium hover:text-gray-700 focus:outline-none
                  dark:hover:text-gray-200 dark:focus-visible:text-gray-200
                 focus-visible:text-gray-700 ${
@@ -58,12 +58,11 @@ export default function TableContents({ toc, activeSection, minLevel }) {
                     ? "text-gray-900 dark:text-gray-100"
                     : "text-gray-400 dark:text-gray-500"
                 }`}
-                style={{ marginLeft: (level - minLevel) * 8 }}
-              >
-                {text}
-              </UnstyledLink>
-            ))
-          : null}
+              style={{ marginLeft: (level - minLevel) * 8 }}
+            >
+              {text}
+            </UnstyledLink>
+          ))}
       </div>
     </div>
   );

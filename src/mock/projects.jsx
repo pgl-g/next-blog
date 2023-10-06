@@ -3,10 +3,10 @@ import {
   SiShopify,
   SiKashflow,
   SiCapacitor,
-} from "react-icons/si";
-import { FiCpu } from "react-icons/fi";
-import { BiWind } from "react-icons/bi";
-import { MdWifiTethering } from "react-icons/md";
+  FiCpu,
+  BiWind,
+  MdWifiTethering,
+} from "@/components/iconCpm";
 
 export const projectsConfig = [
   {

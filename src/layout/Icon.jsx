@@ -1,5 +1,4 @@
-import { BsGithub } from "react-icons/bs";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { BsGithub, FiMoon, FiSun } from "@/components/iconCpm";
 import { useTheme } from "next-themes";
 import UnstyledLink from "@/components/customCpm/UnstyledLink";
 import { useEffect, useState } from "react";

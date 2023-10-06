@@ -1,5 +1,5 @@
 import * as React from "react";
-import { BsFillXCircleFill } from "react-icons/bs";
+import { BsFillXCircleFill } from "@/components/iconCpm";
 
 import Layout from "@/layout";
 import CustomLink from "@/components/customCpm/CustomLink";
