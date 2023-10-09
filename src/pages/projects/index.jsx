@@ -7,10 +7,7 @@ import { projectsConfig } from "@/mock/projects";
 export default function Projects() {
   return (
     <Layout>
-      <Seo
-        templateTitle="Projects"
-        description="Showcase of my projects on front-end development that I'm proud of."
-      />
+      <Seo templateTitle="Projects" description="Person Projects" />
       <main>
         <section>
           <div className="layout">

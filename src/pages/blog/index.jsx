@@ -11,7 +11,7 @@ const Blogs = ({ data }) => {
 
   return (
     <Layout>
-      <Seo />
+      <Seo templateTitle="Blog" description="Person Blog" />
       <main>
         <section>
           <div className="layout">
