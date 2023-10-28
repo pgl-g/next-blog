@@ -19,10 +19,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
-    "react-tsparticles": "^2.7.1",
-    "react-use": "^17.4.0",
-    "swr": "^2.0.0",
-    "tsparticles": "^2.7.1"
+    "react-use": "^17.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
