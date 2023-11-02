@@ -46,7 +46,7 @@ export default function Home({ recommendations }) {
         </ul>
         <TypeIt options={{ breakLines: true, loop: true, loopDelay: 3000 }}>
           <strong className="py-4 leading-tight text-black font-light font-mono dark:text-[#bbb]">
-            🤔 持续优化中..
+            📑 好好学习、天天向上...
           </strong>
         </TypeIt>
       </div>
