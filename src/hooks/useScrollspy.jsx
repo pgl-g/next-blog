@@ -40,6 +40,7 @@ export function useScrollSpy() {
     setActiveSection(currentSectionId);
   }, throttleMs);
 
+  console.log(actionSectionScrollSpy, '-=--=-=-=')
   useEffect(() => {
     window.addEventListener("scroll", actionSectionScrollSpy);
 
