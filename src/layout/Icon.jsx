@@ -19,14 +19,14 @@ const Icon = ({ className }) => {
 
   return (
     <div className="flex items-center space-x-3 text-base">
-      <UnstyledLink
+      {/* <UnstyledLink
         href="https://github.com/pgl-g"
         rel="noreferrer"
         target="_blank"
         className={clsx("cursor-pointer", className)}
       >
         <BsGithub />
-      </UnstyledLink>
+      </UnstyledLink> */}
       <button
         className={className}
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
