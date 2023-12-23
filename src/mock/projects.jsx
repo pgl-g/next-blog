@@ -6,7 +6,10 @@ import {
   FiCpu,
   BiWind,
   MdWifiTethering,
+  GiReloadGunBarrel,
+  FaClone
 } from "@/components/iconCpm";
+
 
 export const projectsConfig = [
   {
@@ -61,16 +64,28 @@ export const projectsConfig = [
       },
       {
         title: "pgl-wills",
-        description: "前端工作流集成解决方案",
+        description: "🚀🚀🚀前端工作流 - 集成解决方案",
         link: "https://github.com/pgl-g/wills-pub",
         icon: <SiCapacitor />,
       },
       {
         title: "pgl-request",
-        description: "工程化网关配置",
+        description: "🚀🚀🚀前端工程流 - 网关配置",
         link: "https://github.com/pgl-g/pglRequest",
         icon: <MdWifiTethering />,
       },
+      {
+        title: "umi-plugin-reload",
+        description: "🚀🚀🚀前端工程流 - build workflow",
+        link: "https://github.com/pgl-g/umi-plugin-reload",
+        icon: <GiReloadGunBarrel />,
+      },
+      {
+        title: "clone",
+        description: "🐍clone all code",
+        link: "https://github.com/pgl-g/clone",
+        icon: <FaClone />,
+      }
     ],
   },
 ];

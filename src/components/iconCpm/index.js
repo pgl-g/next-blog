@@ -15,6 +15,8 @@ import {
 } from "react-icons/si";
 import { BiWind } from "react-icons/bi";
 import { MdWifiTethering } from "react-icons/md";
+import { GiReloadGunBarrel } from "react-icons/gi";
+import { FaClone } from "react-icons/fa6";
 
 export {
   DiLaravel,
@@ -33,4 +35,6 @@ export {
   BiWind,
   MdWifiTethering,
   BsFillXCircleFill,
+  GiReloadGunBarrel,
+  FaClone
 };
