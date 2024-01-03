@@ -1,20 +1,45 @@
-import React from 'react';
-import Layout from '@/layout';
+'use client';
 
-import Seo from '@/layout/Seo';
+import { useState, useRef } from 'react';
 
-
-const Demo = () => {
-
+export default function AvatarUploadPage() {
+    const inputFileRef = useRef(null);
+    const [blob, setBlob] = useState(null);
     return (
-        <Layout>
-            <Seo templateTitle="Blog" description="Person Blog" />
+        <>
+            <h1>Upload Your Avatar</h1>
 
-            <main>
-                开发中...
-            </main>
+            <form
+                onSubmit={async (event) => {
+                    event.preventDefault();
 
-        </Layout>
-    )
+                    if (!inputFileRef.current?.files) {
+                        throw new Error('No file selected');
+                    }
+
+                    const file = inputFileRef.current.files[0];
+
+                    const response = await fetch(
+                        `/api/avatar/upload?filename=${file.name}`,
+                        {
+                            method: 'POST',
+                            body: file,
+                        },
+                    );
+
+                    const newBlob = (await response.json());
+
+                    setBlob(newBlob);
+                }}
+            >
+                <input name="file" ref={inputFileRef} type="file" required />
+                <button type="submit">Upload</button>
+            </form>
+            {blob && (
+                <div>
+                    Blob url: <a href={blob.url}>{blob.url}</a>
+                </div>
+            )}
+        </>
+    );
 }
-export default Demo;
