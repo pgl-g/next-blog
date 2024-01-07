@@ -2,12 +2,13 @@ import format from "@/utils/format";
 import Link from "next/link";
 import { HiOutlineClock, HiOutlineEye } from "@/components/iconCpm";
 
-export default function BlogCard({ data, onClick }) {
+export default function BlogCard({ data, onClick, key }) {
   return (
     <li
+      key={key}
       onClick={onClick}
       className="
-      w-full mb-2 rounded-md border cursor-pointer border-gray-300 scale-100 dark:border-gray-600 dark:bg-dark'
+      w-full rounded-md border cursor-pointer border-gray-300 scale-100 dark:border-gray-600 dark:bg-dark'
       hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow
       "
     >

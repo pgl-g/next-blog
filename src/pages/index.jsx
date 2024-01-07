@@ -1,70 +1,35 @@
 import Layout from "@/layout";
+// import Image from 'next/image'
+import Link from 'next/link'
 import Seo from "@/layout/Seo";
-import TypeIt from "typeit-react";
-import { getFiles, getFileById, getRecommendations } from "@/utils/mdx";
+import { FcNook } from "react-icons/fc";
 
-export default function Home({ recommendations }) {
+
+export default function Home() {
   return (
     <Layout>
       <Seo />
       <div className="max-w-[1200px] my-0 mx-auto">
-        <ul className="grid gap-4 grid-cols-3">
-          {recommendations.map((item, index) => (
-            <li
-              className="w-full rounded-md border border-gray-300 bg-white dark:border-gray-600 dark:bg-dark scale-100 
-            hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu transition duration-100 motion-reduce:hover:scale-100 animate-shadow"
-              key={item.slug}
-            >
-              <a
-                href={`/blog/${item.slug}`}
-                className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
-              >
-                <div>
-                  <figure className="pointer-events-none overflow-hidden rounded-t-md">
-                    <div className="w-full h-[155px]">
-                      <img src={item.img} alt={`${item.img} + ${index}`} />
-                    </div>
-                  </figure>
-                </div>
-                <div className="p-4">
-                  <h4 className="text-gray-800 dark:text-gray-100">
-                    {item.title}
-                  </h4>
-                  <p className="mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300">
-                    <span className="font-bold text-gray-800 dark:text-gray-100">
-                      {item.lastUpdated}
-                    </span>
-                  </p>
+        <div className="h-[70vh]">
+          <div className="flex flex-col gap-12">
+            <h1 className="text-5xl">Welcome to my blog.</h1>
 
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    {item.description}
-                  </p>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <TypeIt options={{ breakLines: true, loop: true, loopDelay: 3000 }}>
-          <strong className="py-4 leading-tight text-black font-light font-mono dark:text-[#bbb]">
-            📑 好好学习、天天向上...
-          </strong>
-        </TypeIt>
+            <p className="text-xl">
+              首先欢迎大家来看我写的博客，我是PGL，本本分分的前端打工人😜。
+            </p>
+
+            <div className="w-[140px] inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-slate-900 text-gray-200 hover:bg-slate-700 dark:bg-slate-2,text-dark">
+              <Link href="/blog" className="btn btn-primary flex items-center">
+                <span>
+                  开始学习
+                  <span aria-hidden="true" class="ml-1 sm:inline">→</span>
+                </span>
+              </Link>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </Layout>
+    </Layout >
   );
 }
-
-export const getStaticProps = async () => {
-  const dir = await getFiles("blog");
-  const dirPost = dir.map((p) => ({
-    slug: p.replace(/\.mdx/, ""),
-  }));
-  let post, recommendations;
-  for (const params of dirPost) {
-    post = await getFileById("blog", params?.slug);
-    recommendations = await getRecommendations(params?.slug);
-  }
-  return {
-    props: { ...post, recommendations },
-  };
-};

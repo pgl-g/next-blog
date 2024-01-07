@@ -1,8 +1,10 @@
 import Layout from "@/layout";
 import Seo from "@/layout/Seo";
-import BlogCard from "@/components/pagesCpm/blog/BlogCard";
-import TypeIt from "typeit-react";
+import BlogCard from "@/components/pagesCpm/blogCard/BlogCard";
+// import TypeIt from "typeit-react";
 import { getAllFilesFrontmatter } from "@/utils/mdx";
+import TypeIt from "@/components/commonCpm/animationText/typeit";
+
 
 const Blogs = ({ data }) => {
   const getYear = (a) => new Date(a).getFullYear();
@@ -15,27 +17,23 @@ const Blogs = ({ data }) => {
       <main>
         <section>
           <div className="layout">
-            <ul className="grid gap-4 mx-4 mt-12" data-fade="1">
+            <ul className="grid mx-4 mt-12" data-fade="1">
               {data.map((item, index) => (
                 <div key={item.slug}>
                   {!isSameYear(
                     item.publishedAt,
                     data[index - 1]?.publishedAt
                   ) && (
-                    <span className="inline-block pb-2 text-[24px] text-[#aaa]">
-                      {getYear(item.publishedAt)}
-                    </span>
-                  )}
+                      <span className="inline-block pb-2 text-[24px] text-[#aaa]">
+                        {getYear(item.publishedAt)}
+                      </span>
+                    )}
                   <BlogCard data={item} key={item.slug} />
                 </div>
               ))}
 
-              <TypeIt
-                options={{ breakLines: true, loop: true, loopDelay: 3000 }}
-              >
-                <strong className="py-4 leading-tight text-black font-light font-mono dark:text-[#bbb]">
-                  🤔 头好痒啊！要长脑袋了..
-                </strong>
+              <TypeIt>
+                🤔 头好痒啊！要长脑袋了..
               </TypeIt>
             </ul>
           </div>

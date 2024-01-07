@@ -30,14 +30,14 @@ export default function Header() {
         "fixed top-0 z-50 w-full bg-transparent transition overflow-hidden",
         "dark:border-b  dark:border-black",
         isDocHover &&
-          "border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md"
+        "border-b border-black border-opacity-[0.12] bg-opacity-[98] backdrop-blur-md"
       )}
     >
       <section>
         <nav className="mx-8 w=full flex justify-between py-4 gap-[24px]">
           <UnstyledLink
             href="/"
-            className="text-4xl text-stone-500 dark:text-white"
+            className="text-4xl text-dark dark:text-white"
           >
             <DiLaravel />
           </UnstyledLink>
@@ -47,14 +47,14 @@ export default function Header() {
               return (
                 <span key={item.name}>
                   <Link href={item.link}>
-                    <span className="font-sans text-slate-400 hover:text-gray-400 dark:text-white">
+                    <span className="font-sans text-dark hover:text-gray-400 dark:text-white">
                       {item.name}
                     </span>
                   </Link>
                 </span>
               );
             })}
-            <Icon className="text-stone-500 dark:text-white" />
+            <Icon className="text-dark dark:text-white" />
           </ul>
         </nav>
       </section>
