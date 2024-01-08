@@ -2,7 +2,6 @@ import Link from "next/link";
 
 export default function BlogCard({ data }) {
 
-
   return (
     <div
       class="relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]"
