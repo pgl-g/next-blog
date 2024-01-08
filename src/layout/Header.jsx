@@ -9,6 +9,10 @@ import clsx from "clsx";
 
 const navVal = [
   {
+    name: "Interview",
+    link: "/interview",
+  },
+  {
     name: "Blog",
     link: "/blog",
   },
