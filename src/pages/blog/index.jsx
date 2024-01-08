@@ -11,14 +11,12 @@ const Blogs = ({ data }) => {
     <Layout>
       <Seo templateTitle="Blog" description="Person Blog" />
       <main>
-        <section>
-          <div className="layout grid mx-4 mt-12">
-            <BlogCard data={data} />
-            <TypeIt>
-              🤔 头好痒啊！要长脑袋了..
-            </TypeIt>
-          </div>
-        </section>
+        <div className="layout grid mx-4 mt-12">
+          <BlogCard data={data} />
+          <TypeIt>
+            🤔 头好痒啊！要长脑袋了..
+          </TypeIt>
+        </div>
       </main>
     </Layout>
   );
@@ -26,7 +24,6 @@ const Blogs = ({ data }) => {
 
 export async function getStaticProps() {
   const files = await getAllFilesFrontmatter("blog");
-
   const filesSort = files.sort(
     (a, b) =>
       new Date(b.time ?? b.time).valueOf() -
