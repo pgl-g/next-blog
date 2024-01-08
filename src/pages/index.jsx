@@ -15,15 +15,12 @@ export default function Home() {
             <h1 className="text-5xl">Welcome to my blog.</h1>
 
             <p className="text-xl">
-              首先欢迎大家来看我写的博客，我是PGL，本本分分的前端打工人😜。
+              First of all, welcome everyone to take a look at my blog. I am PGL, a frontend worker for not go beyond moral bounds😜。
             </p>
 
-            <div className="w-[140px] inline-flex justify-center rounded-lg text-sm font-semibold py-3 px-4 bg-slate-900 text-gray-200 hover:bg-slate-700 dark:bg-slate-2,text-dark">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
               <Link href="/blog" className="btn btn-primary flex items-center">
-                <span>
-                  开始学习
-                  <span aria-hidden="true" class="ml-1 sm:inline">→</span>
-                </span>
+                Our blog <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
