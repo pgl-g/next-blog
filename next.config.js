@@ -4,6 +4,7 @@ const path = require("path");
 
 const nextConfig = {
   reactStrictMode: true,
+  largePageDataBytes: 128 * 100000,
   images: {
     remotePatterns: [
       {
