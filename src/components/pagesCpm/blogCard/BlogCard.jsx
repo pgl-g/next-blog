@@ -28,7 +28,6 @@ export default function BlogCard({ data }) {
                   r="4.5"
                   stroke="currentColor"
                   className="fill-white dark:fill-slate-900"
-                  // stroke-width="2"
                   strokeWidth={2}
                 ></circle>
               </svg>
@@ -72,8 +71,6 @@ export default function BlogCard({ data }) {
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
-                  // stroke-linecap="round"
-                  // stroke-linejoin="round"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
