@@ -1,8 +1,9 @@
-import Layout from "@/layout";
-import Seo from "@/layout/Seo";
-import TypeIt from "@/components/commonCpm/animationText/typeit";
-import { getFiles, getFileById, getRecommendations } from "@/utils/mdx";
-import PageCard from "@/components/pagesCpm/pageCard/PageCard";
+import Layout from "../../layout";
+import Seo from "../../layout/Seo";
+// import TypeIt from "../components/commonCpm/animationText/typeit";
+import TypeIt from "../../components/commonCpm/animationText/typeit";
+import { getFiles, getFileById, getRecommendations } from "../../utils/mdx";
+import PageCard from "../../components/pagesCpm/pageCard/PageCard";
 
 
 const Demo = ({ recommendations }) => {

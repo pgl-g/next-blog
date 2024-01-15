@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "./Icon";
-import { useScroll } from "@/hooks";
-import { DiLaravel } from "@/components/iconCpm";
-import UnstyledLink from "@/components/customCpm/UnstyledLink";
+import { useScroll } from "../hooks";
+import { DiLaravel } from "../components/iconCpm";
+import UnstyledLink from "../components/customCpm/UnstyledLink";
 
 import clsx from "clsx";
 

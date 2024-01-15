@@ -1,9 +1,9 @@
 import * as React from "react";
-import { BsFillXCircleFill } from "@/components/iconCpm";
+import { BsFillXCircleFill } from "../components/iconCpm";
 
-import Layout from "@/layout";
-import CustomLink from "@/components/customCpm/CustomLink";
-import Seo from "@/layout/Seo";
+import Layout from "../layout";
+import CustomLink from "../components/customCpm/CustomLink";
+import Seo from "../layout/Seo";
 
 export default function NotFoundPage() {
   return (

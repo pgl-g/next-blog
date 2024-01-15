@@ -1,8 +1,8 @@
-import Layout from "@/layout";
-import Seo from "@/layout/Seo";
-import BlogCard from "@/components/pagesCpm/blogCard/BlogCard";
-import { getAllFilesFrontmatter } from "@/utils/mdx";
-import TypeIt from "@/components/commonCpm/animationText/typeit";
+import Layout from "../../layout";
+import Seo from "../../layout/Seo";
+import BlogCard from "../../components/pagesCpm/blogCard/BlogCard";
+import { getAllFilesFrontmatter } from "../../utils/mdx";
+import TypeIt from "../../components/commonCpm/animationText/typeit";
 
 
 const Blogs = ({ data }) => {

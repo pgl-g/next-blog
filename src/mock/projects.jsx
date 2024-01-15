@@ -8,7 +8,7 @@ import {
   MdWifiTethering,
   GiReloadGunBarrel,
   FaClone
-} from "@/components/iconCpm";
+} from "../components/iconCpm";
 
 
 export const projectsConfig = [

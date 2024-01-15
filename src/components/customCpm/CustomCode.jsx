@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { HiCheckCircle, HiClipboard } from "@/components/iconCpm";
+import { HiCheckCircle, HiClipboard } from "../iconCpm";
 
 export function Pre(props) {
   return (

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import UnstyledLink from "@/components/customCpm/UnstyledLink";
+import UnstyledLink from "../../customCpm/UnstyledLink"
 
 export default function TableContents({ toc, activeSection, minLevel }) {
   const lastPosition = useRef(0);
@@ -53,10 +53,9 @@ export default function TableContents({ toc, activeSection, minLevel }) {
               className={`
                  font-medium hover:text-gray-700 focus:outline-none
                  dark:hover:text-gray-200 dark:focus-visible:text-gray-200
-                focus-visible:text-gray-700 ${
-                  activeSection === id
-                    ? "text-gray-900 dark:text-gray-100"
-                    : "text-gray-400 dark:text-gray-500"
+                focus-visible:text-gray-700 ${activeSection === id
+                  ? "text-gray-900 dark:text-gray-100"
+                  : "text-gray-400 dark:text-gray-500"
                 }`}
               style={{ marginLeft: (level - minLevel) * 8 }}
             >

@@ -4,7 +4,7 @@ import { useWindowSize } from "react-use";
 import style from "./style.module.css";
 
 import clsx from "clsx";
-import { useRafFn } from "@/hooks";
+import { useRafFn } from "../hooks";
 
 const Plum = () => {
   const size = useWindowSize();

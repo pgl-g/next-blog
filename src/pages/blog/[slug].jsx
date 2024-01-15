@@ -1,13 +1,13 @@
 import React, { useMemo, useState, useEffect } from "react";
-import Layout from "@/layout";
-import Seo from "@/layout/Seo";
-import { getFiles, getFileById, getRecommendations } from "@/utils/mdx";
+import Layout from "../../layout";
+import Seo from "../../layout/Seo";
+import { getFiles, getFileById, getRecommendations } from "../../utils/mdx";
 import { getMDXComponent } from "mdx-bundler/client";
-import format from "@/utils/format";
-import TableContents from "@/components/commonCpm/tableContents";
-import MDXComponents from "@/components/mdxCpm/MDXComponents";
-import CustomLink from "@/components/customCpm/CustomLink";
-import { useScrollSpy } from "@/hooks";
+import format from "../../utils/format";
+import TableContents from "../../components/commonCpm/tableContents";
+import MDXComponents from "../../components/mdxCpm/MDXComponents";
+import CustomLink from "../../components/customCpm/CustomLink";
+import { useScrollSpy } from "../../hooks";
 
 export default function SingleBlogPage({ code, frontmatter, recommendations }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);

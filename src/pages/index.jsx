@@ -1,7 +1,7 @@
-import Layout from "@/layout";
+import Layout from "../layout";
 // import Image from 'next/image'
 import Link from 'next/link'
-import Seo from "@/layout/Seo";
+import Seo from "../layout/Seo";
 import { FcNook } from "react-icons/fc";
 
 

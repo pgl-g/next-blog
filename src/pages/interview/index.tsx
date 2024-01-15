@@ -1,6 +1,6 @@
 
-import Layout from "@/layout";
-import Seo from "@/layout/Seo";
+import Layout from "../../layout";
+import Seo from "../../layout/Seo";
 
 const Interview = () => {
   return (
