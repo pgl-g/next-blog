@@ -15,12 +15,12 @@ export default function Home() {
             <h1 className="text-5xl">Welcome to my blog.</h1>
 
             <p className="text-xl">
-              First of all, welcome everyone to take a look at my blog. I am PGL, a frontend worker for not go beyond moral bounds😜。
+              Don't care about the gaze of others, I live for myself!. I am PGL, a frontend worker for not go beyond moral bounds😜。
             </p>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
               <Link href="/blog" className="btn btn-primary flex items-center">
-                Our blog <span aria-hidden="true">&rarr;</span>
+                Our blog<span className="ml-1" aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
