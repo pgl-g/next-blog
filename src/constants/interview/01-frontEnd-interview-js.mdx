@@ -36,3 +36,20 @@ JavaScript 共有八种数据类型，分别是 Undefined、Null、Boolean、Num
 
 - 栈区内存由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。
 - 堆区内存一般由开发着分配释放，若开发者不释放，程序结束时可能由垃圾回收机制回收。
+
+### 2. 数据类型检测的方式有哪些
+
+（1）typeof
+
+```javaScript
+console.log(typeof 2);                              // number
+console.log(typeof true);                           // boolean
+console.log(typeof 'str');                          // string
+console.log(typeof []);                             // object
+console.log(typeof function(){});                   // function
+console.log(typeof {});                             // object
+console.log(typeof undefined);                      // undefined
+console.log(typeof null);                           // object
+```
+
+其中数组、对象、null 都会被判断为 object，其他判断都正确
