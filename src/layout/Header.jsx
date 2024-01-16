@@ -20,10 +20,10 @@ const navVal = [
     name: "Projects",
     link: "/projects",
   },
-  {
-    name: 'Demo',
-    link: '/demo'
-  }
+  // {
+  //   name: 'Demo',
+  //   link: '/demo'
+  // }
 ];
 
 export default function Header() {
