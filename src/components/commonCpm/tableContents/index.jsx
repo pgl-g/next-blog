@@ -9,6 +9,7 @@ export default function TableContents({ toc, activeSection, minLevel }) {
     const container = document.getElementById("toc-container");
     const activeLink = document.getElementById(`link-${activeSection}`);
 
+    console.log(container, activeLink, '矛点滚动')
     if (container && activeLink) {
       // Get container properties
       const cTop = container.scrollTop;
@@ -40,9 +41,10 @@ export default function TableContents({ toc, activeSection, minLevel }) {
   return (
     <div
       id="toc-container"
-      className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
+      // className="block max-h-[calc(100vh-9rem-113px)] overflow-auto pb-4"
+      className="block pb-4"
     >
-      <h3 className="text-gray-900">目录</h3>
+      <h3 className="text-gray-900 dark: text-white">目录</h3>
       <div className="flex flex-col mt-4 space-y-2 text-sm">
         {toc &&
           toc.map(({ id, level, text }) => (
@@ -53,10 +55,9 @@ export default function TableContents({ toc, activeSection, minLevel }) {
               className={`
                  font-medium hover:text-gray-700 focus:outline-none
                  dark:hover:text-gray-200 dark:focus-visible:text-gray-200
-                focus-visible:text-gray-700 ${
-                  activeSection === id
-                    ? "text-gray-900 dark:text-gray-100"
-                    : "text-gray-400 dark:text-gray-500"
+                focus-visible:text-gray-700 ${activeSection === id
+                  ? "text-gray-900 dark:text-gray-100"
+                  : "text-gray-400 dark:text-gray-500"
                 }`}
               style={{ marginLeft: (level - minLevel) * 8 }}
             >

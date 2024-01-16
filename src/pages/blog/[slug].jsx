@@ -25,9 +25,10 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
       const text = heading.textContent + "";
       headingArr.push({ id, level, text });
     });
-
     setToc(headingArr);
   }, [frontmatter.slug]);
+
+
   return (
     <Layout>
       <Seo
@@ -51,7 +52,7 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
               </article>
 
               <aside className="py-4 ">
-                <div className="sticky top-[36px]">
+                <div className="sticky top-[126px]">
                   <TableContents
                     toc={toc}
                     minLevel={minLevel}

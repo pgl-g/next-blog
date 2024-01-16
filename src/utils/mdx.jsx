@@ -23,6 +23,7 @@ export async function getFileById(type, slug) {
       "utf8"
     );
 
+  // TODO: 配置矛点
   const { code, frontmatter } = await bundleMDX({
     source: mdxSource,
     mdxOptions(options, _) {

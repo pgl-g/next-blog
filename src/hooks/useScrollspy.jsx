@@ -10,7 +10,6 @@ export function useScrollSpy() {
 
   const actionSectionScrollSpy = throttle(() => {
     const sections = document.getElementsByClassName("hash-anchor");
-
     let prevBBox = null;
     let currentSectionId = activeSection;
 
@@ -21,6 +20,7 @@ export function useScrollSpy() {
         currentSectionId = section.getAttribute("href")?.split("#")[1] ?? null;
       }
 
+      // 获取视口大小
       const bbox = section.getBoundingClientRect();
       const prevHeight = prevBBox ? bbox.top - prevBBox.bottom : 0;
       const offset = Math.max(200, prevHeight / 4);
@@ -40,7 +40,7 @@ export function useScrollSpy() {
     setActiveSection(currentSectionId);
   }, throttleMs);
 
-  console.log(actionSectionScrollSpy, '-=--=-=-=')
+  // console.log(actionSectionScrollSpy, '-=--=-=-=')
   useEffect(() => {
     window.addEventListener("scroll", actionSectionScrollSpy);
 
