@@ -15,13 +15,13 @@ export async function getFiles(type) {
 export async function getFileById(type, slug) {
   const mdxSource = slug
     ? readFileSync(
-        join(process.cwd(), "src", "constants", type, `${slug}.mdx`),
-        "utf8"
-      )
+      join(process.cwd(), "src", "constants", type, `${slug}.mdx`),
+      "utf8"
+    )
     : readFileSync(
-        join(process.cwd(), "src", "constants", `${type}.mdx`),
-        "utf8"
-      );
+      join(process.cwd(), "src", "constants", `${type}.mdx`),
+      "utf8"
+    );
 
   const { code, frontmatter } = await bundleMDX({
     source: mdxSource,
@@ -43,6 +43,7 @@ export async function getFileById(type, slug) {
       return options;
     },
   });
+
 
   return {
     code,
@@ -77,16 +78,17 @@ export async function getAllFilesFrontmatter(type) {
   }, []);
 }
 
-export async function getRecommendations(currSlug) {
-  const frontmatters = await getAllFilesFrontmatter("blog");
+export async function getRecommendations(type, currSlug) {
+  const frontmatters = await getAllFilesFrontmatter(type);
 
   // Get current frontmatter
   const currentFm = frontmatters.find((fm) => fm.slug === currSlug);
-
+  // console.log(currentFm, 'currentFm');
   // Remove currentFm and Bahasa Posts, then randomize order
-  const otherFms = frontmatters
-    .filter((fm) => !fm.slug.startsWith("id-") && fm.slug !== currSlug)
-    .sort(() => Math.random() - 0.5);
+  // const otherFms = frontmatters.filter((fm) => !fm.slug.startsWith("id-") && fm.slug !== currSlug)
+
+  const otherFms = [...frontmatters];
+
 
   // Find with similar tags
   const recommendations = otherFms.filter((op) =>
@@ -98,10 +100,10 @@ export async function getRecommendations(currSlug) {
     recommendations.length >= 3
       ? recommendations
       : [
-          ...recommendations,
-          ...otherFms.filter(
-            (fm) => !recommendations.some((r) => r.slug === fm.slug)
-          ),
-        ];
+        ...recommendations,
+        ...otherFms.filter(
+          (fm) => !recommendations.some((r) => r.slug === fm.slug)
+        ),
+      ];
   return threeRecommendations;
 }

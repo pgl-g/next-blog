@@ -6,6 +6,8 @@ import PageCard from "@/components/pagesCpm/pageCard/PageCard";
 
 
 const Interview = ({ recommendations }) => {
+
+
 	return (
 		<Layout>
 			<Seo />
@@ -22,15 +24,16 @@ const Interview = ({ recommendations }) => {
 
 
 export const getStaticProps = async () => {
-	const dir = await getFiles("blog");
+	const dir = await getFiles("interview");
 	const dirPost = dir.map((p) => ({
 		slug: p.replace(/\.mdx/, ""),
 	}));
 	let post, recommendations;
 	for (const params of dirPost) {
-		post = await getFileById("blog", params?.slug);
-		recommendations = await getRecommendations(params?.slug);
+		post = await getFileById("interview", params?.slug);
+		recommendations = await getRecommendations("interview", params?.slug);
 	}
+
 	return {
 		props: { ...post, recommendations },
 	};

@@ -2,7 +2,6 @@
 
 
 const PageCard = ({ recommendations }) => {
-
   return (
     <ul className="grid gap-4 grid-cols-3">
       {
@@ -13,7 +12,7 @@ const PageCard = ({ recommendations }) => {
             key={index}
           >
             <a
-              href={`/blog/${item.slug}`}
+              href={`/interview/${item.slug}`}
               className="block h-full rounded-md focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
             >
               <div>

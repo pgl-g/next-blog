@@ -61,7 +61,7 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
               </aside>
             </section>
             <div className="flex gap-4 mt-8 text-white">
-              <CustomLink href="/">← Back to blog</CustomLink>
+              <CustomLink href="/">← Back to interview</CustomLink>
             </div>
           </div>
         </section>
@@ -71,7 +71,7 @@ export default function SingleBlogPage({ code, frontmatter, recommendations }) {
 }
 
 export const getStaticPaths = async () => {
-  const posts = await getFiles("blog");
+  const posts = await getFiles("interview");
   return {
     paths: posts.map((p) => {
       return {
@@ -85,8 +85,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const post = await getFileById("blog", params?.slug);
-  const recommendations = await getRecommendations('blog', params?.slug);
+  const post = await getFileById("interview", params?.slug);
+  const recommendations = await getRecommendations('interview', params?.slug);
   return {
     props: { ...post, recommendations },
   };
