@@ -34,7 +34,7 @@ module.exports = {
         cliCor: '#f87171',
         jsonCor: '#f9a8d4',
         willsCor: '#c084fc',
-        reqCor: '#ede9fe',
+        reqCor: '#f43f5e',
         reloadCor: '#fef3c7',
         cloneCor: '#f87171'
       },
