@@ -19,7 +19,7 @@ export const projectsConfig = [
         title: "nextjs-blog",
         description:
           "The most beautiful blog in modern times, using Next.js, Tailwind CSS, Welcome to visit",
-        link: "https://github.com/pgl-g/next-blog",
+        link: "",
         icon: <SiNextdotjs />,
       },
     ],
@@ -31,7 +31,7 @@ export const projectsConfig = [
         title: "vue-spuermarket",
         description:
           "Vue2.0 family bucket development e-commerce management system",
-        link: "https://github.com/pgl-g/HY-supermarket",
+        link: "",
         icon: <SiShopify className="text-shopCor" />,
       },
     ],
@@ -42,13 +42,13 @@ export const projectsConfig = [
       {
         title: "mini-webpack",
         description: "Webpack is a small packaging tool",
-        link: "https://github.com/pgl-g/mini-webpack",
+        link: "",
         icon: <FiCpu className="text-sysCor" />,
       },
       {
         title: "pgl-cli",
         description: "脚手架",
-        link: "https://github.com/pgl-g/cli",
+        link: "",
         icon: <BiWind className="text-cliCor" />,
       },
     ],
@@ -59,31 +59,31 @@ export const projectsConfig = [
       {
         title: "json-to-ts",
         description: "json data to typescript",
-        link: "https://github.com/pgl-g/json-to-ts",
+        link: "",
         icon: <SiKashflow className="text-jsonCor" />,
       },
       {
         title: "pgl-wills",
         description: "🚀🚀🚀前端工作流 - 集成解决方案",
-        link: "https://github.com/pgl-g/wills-pub",
+        link: "",
         icon: <SiCapacitor className="text-willsCor" />,
       },
       {
         title: "pgl-request",
         description: "🚀🚀🚀前端工程流 - 网关配置",
-        link: "https://github.com/pgl-g/pglRequest",
+        link: "",
         icon: <MdWifiTethering className="text-reqCor" />,
       },
       {
         title: "umi-plugin-reload",
         description: "🚀🚀🚀前端工程流 - build workflow",
-        link: "https://github.com/pgl-g/umi-plugin-reload",
+        link: "",
         icon: <GiReloadGunBarrel className="text-reloadCor" />,
       },
       {
         title: "clone",
         description: "🐍clone all code",
-        link: "https://github.com/pgl-g/clone",
+        link: "",
         icon: <FaClone className="text-cloneCor" />,
       }
     ],

@@ -20,7 +20,7 @@ const Icon = ({ className }) => {
   return (
     <div className="flex items-center space-x-3 text-base">
       <UnstyledLink
-        href="https://github.com/pgl-g"
+        href=""
         rel="noreferrer"
         target="_blank"
         className={clsx("cursor-pointer", className)}

@@ -6,7 +6,7 @@ export default function Footer() {
       <main className="layout flex flex-col items-center border-t pt-6 dark:border-gray-600">
         <div>
           <a
-            href="https://github.com/pgl-g"
+            href=""
             target="_blank"
             className="pl-1 "
             rel="noreferrer"
